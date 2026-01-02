@@ -5509,24 +5509,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lumba\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Rendra_aditya763\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\sem 3\\pemograman II\\Tugas\\Aplikasi Manajemen Sampah\\Aplikasi Manajemen Sampah.csproj",
+      "projectUniqueName": "C:\\Users\\Rendra_aditya763\\OneDrive\\Desktop\\Aplikasi-Manajemen-Sampah\\Aplikasi Manajemen Sampah\\Aplikasi Manajemen Sampah.csproj",
       "projectName": "Aplikasi Manajemen Sampah",
-      "projectPath": "D:\\sem 3\\pemograman II\\Tugas\\Aplikasi Manajemen Sampah\\Aplikasi Manajemen Sampah.csproj",
-      "packagesPath": "C:\\Users\\Lumba\\.nuget\\packages\\",
-      "outputPath": "D:\\sem 3\\pemograman II\\Tugas\\Aplikasi Manajemen Sampah\\obj\\",
+      "projectPath": "C:\\Users\\Rendra_aditya763\\OneDrive\\Desktop\\Aplikasi-Manajemen-Sampah\\Aplikasi Manajemen Sampah\\Aplikasi Manajemen Sampah.csproj",
+      "packagesPath": "C:\\Users\\Rendra_aditya763\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Rendra_aditya763\\OneDrive\\Desktop\\Aplikasi-Manajemen-Sampah\\Aplikasi Manajemen Sampah\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Lumba\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Rendra_aditya763\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5534,7 +5529,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5603,7 +5597,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
