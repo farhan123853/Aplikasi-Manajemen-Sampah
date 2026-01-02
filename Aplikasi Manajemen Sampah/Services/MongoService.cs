@@ -10,7 +10,9 @@ namespace Aplikasi_Manajemen_Sampah.Services
 
         public MongoService()
         {
-            var client = new MongoClient("mongodb://localhost:27017");
+            string connectionString = "mongodb+srv://lumbantoruansamuel07_db_user:samuel16@aplikasimanajemensampah.uljmyee.mongodb.net/?retryWrites=true&w=majority&appName=aplikasimanajemensampahdb";
+
+            var client = new MongoClient(connectionString);
             _db = client.GetDatabase("ManajemenSampahDB");
         }
 
