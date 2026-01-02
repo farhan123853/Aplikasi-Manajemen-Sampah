@@ -18,6 +18,8 @@
         private void InitializeComponent()
         {
             this.panelSidebar = new System.Windows.Forms.Panel();
+            // 1. INI PENTING: Membuat Tombol Cetak
+            this.btnCetak = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
             this.btnPenjemputan = new System.Windows.Forms.Button();
             this.btnSampah = new System.Windows.Forms.Button();
@@ -35,6 +37,9 @@
             // panelSidebar
             // 
             this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(50)))), ((int)(((byte)(40)))));
+            // 2. INI PENTING: Menempelkan Tombol ke Sidebar
+            // Urutan Add menentukan posisi tumpukan (Stack)
+            this.panelSidebar.Controls.Add(this.btnCetak); // <-- Pastikan baris ini ada!
             this.panelSidebar.Controls.Add(this.btnUsers);
             this.panelSidebar.Controls.Add(this.btnPenjemputan);
             this.panelSidebar.Controls.Add(this.btnSampah);
@@ -45,6 +50,20 @@
             this.panelSidebar.Name = "panelSidebar";
             this.panelSidebar.Size = new System.Drawing.Size(240, 673);
             this.panelSidebar.TabIndex = 0;
+            // 
+            // btnCetak (Setting Tampilan Tombol)
+            // 
+            this.btnCetak.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCetak.FlatAppearance.BorderSize = 0;
+            this.btnCetak.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCetak.ForeColor = System.Drawing.Color.White;
+            this.btnCetak.Location = new System.Drawing.Point(0, 250);
+            this.btnCetak.Name = "btnCetak";
+            this.btnCetak.Size = new System.Drawing.Size(240, 50);
+            this.btnCetak.TabIndex = 5;
+            this.btnCetak.Text = "📄 Cetak Laporan";
+            this.btnCetak.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCetak.UseVisualStyleBackColor = true;
             // 
             // btnUsers
             // 
@@ -174,6 +193,7 @@
             this.panelHeader.PerformLayout();
             this.ResumeLayout(false);
         }
+
         #endregion
 
         private System.Windows.Forms.Panel panelSidebar;
@@ -186,5 +206,7 @@
         private System.Windows.Forms.Button btnSampah;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label lblWelcome;
+        // 3. INI PENTING: Deklarasi Variabel Tombol
+        private System.Windows.Forms.Button btnCetak;
     }
 }

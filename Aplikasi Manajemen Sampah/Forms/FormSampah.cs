@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using Aplikasi_Manajemen_Sampah.Models;
 using System.Threading.Tasks;
 using MongoDB.Driver;
+using Aplikasi_Manajemen_Sampah.Services;
+using System.Collections.Generic; // Tambahkan ini untuk List
 
 namespace Aplikasi_Manajemen_Sampah.Forms
 {
@@ -21,8 +23,44 @@ namespace Aplikasi_Manajemen_Sampah.Forms
 
             if (dgvSampah != null) UIHelper.SetGridStyle(dgvSampah);
 
+            // 1. Panggil fungsi untuk mengisi data dropdown Jawa Barat
+            IsiDataLokasiJawaBarat();
+
             SetupEvents();
             LoadData();
+        }
+
+        // --- FUNGSI BARU: Mengisi Dropdown Wilayah Jabar ---
+        private void IsiDataLokasiJawaBarat()
+        {
+            // Pastikan cboLokasi sudah dibuat di Designer
+            cboLokasi.Items.Clear();
+
+            string[] wilayahJabar = {
+                "Kota Bandung", "Kab. Bandung", "Kab. Bandung Barat",
+                "Kota Bogor", "Kab. Bogor",
+                "Kota Bekasi", "Kab. Bekasi",
+                "Kota Depok",
+                "Kota Cimahi",
+                "Kota Tasikmalaya", "Kab. Tasikmalaya",
+                "Kota Sukabumi", "Kab. Sukabumi",
+                "Kota Cirebon", "Kab. Cirebon",
+                "Kota Banjar",
+                "Kab. Cianjur",
+                "Kab. Garut",
+                "Kab. Indramayu",
+                "Kab. Karawang",
+                "Kab. Kuningan",
+                "Kab. Majalengka",
+                "Kab. Pangandaran",
+                "Kab. Purwakarta",
+                "Kab. Subang",
+                "Kab. Sumedang",
+                "Kab. Ciamis"
+            };
+
+            cboLokasi.Items.AddRange(wilayahJabar);
+            cboLokasi.SelectedIndex = 0; // Pilih default yang pertama
         }
 
         private void SetupEvents()
@@ -53,10 +91,10 @@ namespace Aplikasi_Manajemen_Sampah.Forms
 
         private async void BtnSimpan_Click(object sender, EventArgs e)
         {
-            // Validasi Input
+            // Validasi Input (txtLokasi diganti cboLokasi)
             if (string.IsNullOrWhiteSpace(txtNama.Text) ||
                 string.IsNullOrWhiteSpace(txtBerat.Text) ||
-                string.IsNullOrWhiteSpace(txtLokasi.Text))
+                cboLokasi.SelectedIndex == -1) // Cek apakah lokasi dipilih
             {
                 MessageBox.Show("Nama, Berat, dan Lokasi wajib diisi!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -69,6 +107,9 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             }
 
             string jenis = cboJenis.SelectedItem?.ToString() ?? "Organik";
+
+            // Ambil text dari dropdown lokasi
+            string lokasiTerpilih = cboLokasi.SelectedItem.ToString();
             string catatanOtomatis = "";
 
             // --- Logic ---
@@ -102,7 +143,7 @@ namespace Aplikasi_Manajemen_Sampah.Forms
                     Nama = txtNama.Text,
                     Jenis = jenis,
                     BeratKg = beratKg,
-                    Lokasi = txtLokasi.Text,
+                    Lokasi = lokasiTerpilih, // Simpan dari dropdown
                     TanggalMasuk = DateTime.Now,
                     InputBy = currentUser.Username,
                     Catatan = catatanOtomatis
@@ -155,7 +196,20 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             selectedId = row.Cells["Id"].Value?.ToString();
             txtNama.Text = row.Cells["Nama"].Value?.ToString();
             txtBerat.Text = row.Cells["BeratKg"].Value?.ToString();
-            txtLokasi.Text = row.Cells["Lokasi"].Value?.ToString();
+
+            // --- Logic baru untuk Lokasi (Dropdown) ---
+            string lokasiDb = row.Cells["Lokasi"].Value?.ToString();
+            if (lokasiDb != null && cboLokasi.Items.Contains(lokasiDb))
+            {
+                cboLokasi.SelectedItem = lokasiDb;
+            }
+            else
+            {
+                // Jika lokasi di database tidak ada di list (misal data lama), tambahkan sementara atau pilih index 0
+                // Opsi aman: Pilih index 0 atau biarkan kosong
+                cboLokasi.Text = lokasiDb;
+            }
+            // ------------------------------------------
 
             string jenis = row.Cells["Jenis"].Value?.ToString();
             if (cboJenis.Items.Contains(jenis)) cboJenis.SelectedItem = jenis;
@@ -169,7 +223,10 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             selectedId = "";
             txtNama.Clear();
             txtBerat.Clear();
-            txtLokasi.Clear();
+
+            // Reset Dropdown Lokasi
+            if (cboLokasi.Items.Count > 0) cboLokasi.SelectedIndex = 0;
+
             cboJenis.SelectedIndex = 0;
             btnSimpan.Text = "Simpan";
             btnSimpan.BackColor = Color.FromArgb(46, 204, 113);

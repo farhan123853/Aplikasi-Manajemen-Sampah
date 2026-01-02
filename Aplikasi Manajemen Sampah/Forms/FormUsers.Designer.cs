@@ -18,6 +18,7 @@
             this.btnClear = new Aplikasi_Manajemen_Sampah.RoundedButton();
             this.btnHapus = new Aplikasi_Manajemen_Sampah.RoundedButton();
             this.btnSimpan = new Aplikasi_Manajemen_Sampah.RoundedButton();
+            this.btnCetak = new Aplikasi_Manajemen_Sampah.RoundedButton(); // Tombol Cetak di-init di sini
             this.cboRole = new System.Windows.Forms.ComboBox();
             this.lblRole = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -38,6 +39,7 @@
             this.panelInput.Controls.Add(this.btnClear);
             this.panelInput.Controls.Add(this.btnHapus);
             this.panelInput.Controls.Add(this.btnSimpan);
+            this.panelInput.Controls.Add(this.btnCetak); // PERBAIKAN: Tombol ditempel ke Panel
             this.panelInput.Controls.Add(this.cboRole);
             this.panelInput.Controls.Add(this.lblRole);
             this.panelInput.Controls.Add(this.txtPassword);
@@ -105,6 +107,21 @@
             this.btnSimpan.TabIndex = 7;
             this.btnSimpan.Text = "Simpan";
             this.btnSimpan.UseVisualStyleBackColor = false;
+            // 
+            // btnCetak (PERBAIKAN: Setting Tampilan Tombol Ditambahkan)
+            // 
+            this.btnCetak.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219))))); // Warna Biru
+            this.btnCetak.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCetak.FlatAppearance.BorderSize = 0;
+            this.btnCetak.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCetak.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnCetak.ForeColor = System.Drawing.Color.White;
+            this.btnCetak.Location = new System.Drawing.Point(20, 330); // Posisi di bawah tombol lain
+            this.btnCetak.Name = "btnCetak";
+            this.btnCetak.Size = new System.Drawing.Size(280, 40);
+            this.btnCetak.TabIndex = 11;
+            this.btnCetak.Text = "Cetak Laporan PDF";
+            this.btnCetak.UseVisualStyleBackColor = false;
             // 
             // cboRole
             // 
@@ -214,5 +231,6 @@
         private RoundedButton btnClear;
         private System.Windows.Forms.Label labelInfo;
         private System.Windows.Forms.DataGridView dgvUsers;
+        private RoundedButton btnCetak; // Variabel sudah ada
     }
 }

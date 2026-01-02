@@ -28,6 +28,9 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             if (btnUsers != null)
                 btnUsers.Click += (s, e) => OpenChildForm(new FormUsers(currentUser));
 
+            if (btnCetak != null)
+                btnCetak.Click += btnCetakAdmin_Click;
+
             if (btnLogout != null)
                 btnLogout.Click += BtnLogout_Click;
         }
@@ -42,6 +45,12 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             if (btnSampah != null) { UIHelper.SetSidebarButton(btnSampah); SetupButtonHover(btnSampah); }
             if (btnPenjemputan != null) { UIHelper.SetSidebarButton(btnPenjemputan); SetupButtonHover(btnPenjemputan); }
             if (btnUsers != null) { UIHelper.SetSidebarButton(btnUsers); SetupButtonHover(btnUsers); }
+            if (btnCetak != null)
+            {
+                SetupButtonHover(btnCetak);
+                btnCetak.Visible = true; 
+                btnCetak.BringToFront();
+            }
 
             if (btnLogout != null)
             {
@@ -89,6 +98,12 @@ namespace Aplikasi_Manajemen_Sampah.Forms
                 new LoginForm().Show();
                 this.Hide();
             }
+        }
+
+        private async void btnCetakAdmin_Click(object sender, EventArgs e)
+        {
+            // Ubah kursor jadi loading
+            OpenChildForm(new FormLaporan());
         }
     }
 }

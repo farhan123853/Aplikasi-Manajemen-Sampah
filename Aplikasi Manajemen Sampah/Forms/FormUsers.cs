@@ -6,6 +6,7 @@ using MongoDB.Driver;
 using Aplikasi_Manajemen_Sampah.Models;
 using System.Linq;
 using BCrypt.Net;
+using Aplikasi_Manajemen_Sampah.Services;
 
 namespace Aplikasi_Manajemen_Sampah.Forms
 {
@@ -43,6 +44,7 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             btnClear.Click += (s, e) => ClearInputs();
             dgvUsers.CellClick += DgvUsers_CellClick;
             cboRole.SelectedIndex = 0;
+            btnCetak.Click += BtnCetak_Click;
         }
 
         private async void LoadData()
@@ -155,6 +157,20 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             txtPassword.Clear();
             cboRole.SelectedIndex = 0;
             btnSimpan.Text = "Simpan";
+        }
+        private async void BtnCetak_Click(object sender, EventArgs e)
+        {
+            // Ubah kursor jadi loading
+            this.Cursor = Cursors.WaitCursor;
+
+            // Panggil Service PDF yang tadi diperbaiki
+            var pdfService = new Aplikasi_Manajemen_Sampah.Services.PdfService();
+
+            // Karena ini Admin, kita panggil tanpa parameter (biar export SEMUA data)
+            // Kalau mau export data user tertentu saja, masukkan username di dalam kurung.
+            await pdfService.ExportLaporanAsync(DateTime.MinValue, DateTime.MaxValue);
+
+            this.Cursor = Cursors.Default;
         }
     }
 }
