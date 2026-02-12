@@ -31,6 +31,10 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             dtpDari.Value = DateTime.Now.AddDays(-30);
             dtpSampai.Value = DateTime.Now;
 
+            // Isi ComboBox Jenis
+            cboJenis.Items.AddRange(new object[] { "Semua Jenis", "Organik", "Anorganik", "B3", "DaurUlang" });
+            cboJenis.SelectedIndex = 0; // Default: Semua Jenis
+
             // Event
             btnFilter.Click += (s, e) => LoadChartData();
 
@@ -49,14 +53,17 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             chartSampah.BackColor = Color.FromArgb(245, 247, 250);
             area.BackColor = Color.FromArgb(245, 247, 250);
 
-            // Axis X
-            area.AxisX.Title = "Tanggal";
+            // Axis X — menggunakan DateTime, label nama bulan
+            area.AxisX.Title = "Bulan";
             area.AxisX.TitleFont = new Font("Segoe UI", 10F, FontStyle.Bold);
             area.AxisX.LabelStyle.Font = new Font("Segoe UI", 8F);
-            area.AxisX.LabelStyle.Angle = -45;
+            area.AxisX.LabelStyle.Angle = 0;
+            area.AxisX.LabelStyle.Format = "MMM yyyy";
+            area.AxisX.IntervalType = DateTimeIntervalType.Months;
+            area.AxisX.Interval = 1;
+            area.AxisX.MajorGrid.Enabled = true;
             area.AxisX.MajorGrid.LineColor = Color.FromArgb(220, 220, 220);
             area.AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
-            area.AxisX.Interval = 1;
 
             // Axis Y
             area.AxisY.Title = "Berat (kg)";
@@ -123,8 +130,19 @@ namespace Aplikasi_Manajemen_Sampah.Forms
                     .OrderBy(d => d)
                     .ToList();
 
-                // Jenis sampah yang akan ditampilkan
-                string[] jenisTypes = { "Organik", "Anorganik", "B3", "DaurUlang" };
+                // Jenis sampah yang akan ditampilkan (filter berdasarkan ComboBox)
+                string[] semuaJenis = { "Organik", "Anorganik", "B3", "DaurUlang" };
+                string selectedJenis = cboJenis.SelectedItem?.ToString();
+
+                string[] jenisTypes;
+                if (selectedJenis != null && selectedJenis != "Semua Jenis")
+                {
+                    jenisTypes = new string[] { selectedJenis };
+                }
+                else
+                {
+                    jenisTypes = semuaJenis;
+                }
 
                 // Group data: per tanggal per jenis → total berat
                 var grouped = listSampah
@@ -139,16 +157,22 @@ namespace Aplikasi_Manajemen_Sampah.Forms
                 {
                     var series = new Series(jenis)
                     {
-                        ChartType = SeriesChartType.Column,
+                        ChartType = SeriesChartType.Line,
                         Color = warnaJenis.ContainsKey(jenis)
                             ? warnaJenis[jenis]
                             : Color.Gray,
-                        BorderWidth = 1,
-                        IsValueShownAsLabel = false
+                        BorderWidth = 3,
+                        MarkerStyle = MarkerStyle.Circle,
+                        MarkerSize = 8,
+                        MarkerColor = warnaJenis.ContainsKey(jenis)
+                            ? warnaJenis[jenis]
+                            : Color.Gray,
+                        IsValueShownAsLabel = false,
+                        XValueType = ChartValueType.DateTime
                     };
 
-                    // Tooltip
-                    series.ToolTip = "#SERIESNAME\nTanggal: #VALX\nBerat: #VALY kg";
+                    // Tooltip — saat hover muncul tanggal lengkap
+                    series.ToolTip = "#SERIESNAME\nTanggal: #VALX{dd/MM/yyyy}\nBerat: #VALY kg";
 
                     // Isi data per tanggal
                     foreach (var tanggal in tanggalList)
@@ -160,7 +184,7 @@ namespace Aplikasi_Manajemen_Sampah.Forms
                         }
 
                         var point = new DataPoint();
-                        point.SetValueXY(tanggal.ToString("dd/MM"), berat);
+                        point.SetValueXY(tanggal, berat);
                         series.Points.Add(point);
                     }
 

@@ -32,6 +32,8 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.panelFilter = new System.Windows.Forms.Panel();
             this.btnFilter = new System.Windows.Forms.Button();
+            this.cboJenis = new System.Windows.Forms.ComboBox();
+            this.lblJenis = new System.Windows.Forms.Label();
             this.dtpSampai = new System.Windows.Forms.DateTimePicker();
             this.lblSampai = new System.Windows.Forms.Label();
             this.dtpDari = new System.Windows.Forms.DateTimePicker();
@@ -47,6 +49,8 @@
             //
             this.panelFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(50)))), ((int)(((byte)(40)))));
             this.panelFilter.Controls.Add(this.btnFilter);
+            this.panelFilter.Controls.Add(this.cboJenis);
+            this.panelFilter.Controls.Add(this.lblJenis);
             this.panelFilter.Controls.Add(this.dtpSampai);
             this.panelFilter.Controls.Add(this.lblSampai);
             this.panelFilter.Controls.Add(this.dtpDari);
@@ -55,7 +59,7 @@
             this.panelFilter.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelFilter.Location = new System.Drawing.Point(0, 0);
             this.panelFilter.Name = "panelFilter";
-            this.panelFilter.Size = new System.Drawing.Size(900, 60);
+            this.panelFilter.Size = new System.Drawing.Size(900, 100);
             this.panelFilter.TabIndex = 0;
             //
             // lblTitle
@@ -116,12 +120,33 @@
             this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFilter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnFilter.ForeColor = System.Drawing.Color.White;
-            this.btnFilter.Location = new System.Drawing.Point(690, 14);
+            this.btnFilter.Location = new System.Drawing.Point(360, 60);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(100, 30);
+            this.btnFilter.Size = new System.Drawing.Size(120, 30);
             this.btnFilter.TabIndex = 5;
             this.btnFilter.Text = "🔍 Tampilkan";
             this.btnFilter.UseVisualStyleBackColor = false;
+            //
+            // lblJenis
+            //
+            this.lblJenis.AutoSize = true;
+            this.lblJenis.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblJenis.ForeColor = System.Drawing.Color.White;
+            this.lblJenis.Location = new System.Drawing.Point(15, 65);
+            this.lblJenis.Name = "lblJenis";
+            this.lblJenis.Size = new System.Drawing.Size(42, 19);
+            this.lblJenis.TabIndex = 6;
+            this.lblJenis.Text = "Jenis:";
+            //
+            // cboJenis
+            //
+            this.cboJenis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboJenis.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cboJenis.FormattingEnabled = true;
+            this.cboJenis.Location = new System.Drawing.Point(62, 63);
+            this.cboJenis.Name = "cboJenis";
+            this.cboJenis.Size = new System.Drawing.Size(280, 23);
+            this.cboJenis.TabIndex = 7;
             //
             // chartSampah
             //
@@ -130,9 +155,9 @@
             legend1.Name = "Legend1";
             this.chartSampah.Legends.Add(legend1);
             this.chartSampah.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartSampah.Location = new System.Drawing.Point(0, 60);
+            this.chartSampah.Location = new System.Drawing.Point(0, 100);
             this.chartSampah.Name = "chartSampah";
-            this.chartSampah.Size = new System.Drawing.Size(900, 390);
+            this.chartSampah.Size = new System.Drawing.Size(900, 350);
             this.chartSampah.TabIndex = 1;
             //
             // lblNoData
@@ -140,9 +165,9 @@
             this.lblNoData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblNoData.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Italic);
             this.lblNoData.ForeColor = System.Drawing.Color.Gray;
-            this.lblNoData.Location = new System.Drawing.Point(0, 60);
+            this.lblNoData.Location = new System.Drawing.Point(0, 100);
             this.lblNoData.Name = "lblNoData";
-            this.lblNoData.Size = new System.Drawing.Size(900, 390);
+            this.lblNoData.Size = new System.Drawing.Size(900, 350);
             this.lblNoData.TabIndex = 2;
             this.lblNoData.Text = "Belum ada data sampah untuk rentang tanggal ini.";
             this.lblNoData.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -177,5 +202,7 @@
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartSampah;
         private System.Windows.Forms.Label lblNoData;
+        private System.Windows.Forms.Label lblJenis;
+        private System.Windows.Forms.ComboBox cboJenis;
     }
 }
