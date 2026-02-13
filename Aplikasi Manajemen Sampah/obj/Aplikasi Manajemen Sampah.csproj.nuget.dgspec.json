@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\sem 3\\pemograman II\\Tugas\\Aplikasi Manajemen Sampah\\Aplikasi Manajemen Sampah.csproj": {}
+    "C:\\PBO\\Aplikasi Manajemen Sampah\\Aplikasi Manajemen Sampah.csproj": {}
   },
   "projects": {
-    "D:\\sem 3\\pemograman II\\Tugas\\Aplikasi Manajemen Sampah\\Aplikasi Manajemen Sampah.csproj": {
+    "C:\\PBO\\Aplikasi Manajemen Sampah\\Aplikasi Manajemen Sampah.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\sem 3\\pemograman II\\Tugas\\Aplikasi Manajemen Sampah\\Aplikasi Manajemen Sampah.csproj",
+        "projectUniqueName": "C:\\PBO\\Aplikasi Manajemen Sampah\\Aplikasi Manajemen Sampah.csproj",
         "projectName": "Aplikasi Manajemen Sampah",
-        "projectPath": "D:\\sem 3\\pemograman II\\Tugas\\Aplikasi Manajemen Sampah\\Aplikasi Manajemen Sampah.csproj",
-        "packagesPath": "C:\\Users\\Lumba\\.nuget\\packages\\",
-        "outputPath": "D:\\sem 3\\pemograman II\\Tugas\\Aplikasi Manajemen Sampah\\obj\\",
+        "projectPath": "C:\\PBO\\Aplikasi Manajemen Sampah\\Aplikasi Manajemen Sampah.csproj",
+        "packagesPath": "C:\\Users\\andik\\.nuget\\packages\\",
+        "outputPath": "C:\\PBO\\Aplikasi Manajemen Sampah\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Lumba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andik\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -66,6 +66,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.4, )"
+            },
+            "WinForms.DataVisualization": {
+              "target": "Package",
+              "version": "[1.10.0, )"
             },
             "itext.bouncy-castle-adapter": {
               "target": "Package",

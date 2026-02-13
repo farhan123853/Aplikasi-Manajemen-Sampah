@@ -144,7 +144,7 @@ namespace Aplikasi_Manajemen_Sampah.Forms
                     Jenis = jenis,
                     BeratKg = beratKg,
                     Lokasi = lokasiTerpilih, // Simpan dari dropdown
-                    TanggalMasuk = DateTime.Now,
+                    TanggalMasuk = dtpTanggalMasuk.Value,
                     InputBy = currentUser.Username,
                     Catatan = catatanOtomatis
                 };
@@ -214,6 +214,10 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             string jenis = row.Cells["Jenis"].Value?.ToString();
             if (cboJenis.Items.Contains(jenis)) cboJenis.SelectedItem = jenis;
 
+            // Load tanggal masuk ke DateTimePicker
+            if (row.Cells["TanggalMasuk"].Value != null)
+                dtpTanggalMasuk.Value = Convert.ToDateTime(row.Cells["TanggalMasuk"].Value);
+
             btnSimpan.Text = "Update";
             btnSimpan.BackColor = Color.FromArgb(52, 152, 219);
         }
@@ -228,6 +232,7 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             if (cboLokasi.Items.Count > 0) cboLokasi.SelectedIndex = 0;
 
             cboJenis.SelectedIndex = 0;
+            dtpTanggalMasuk.Value = DateTime.Now;
             btnSimpan.Text = "Simpan";
             btnSimpan.BackColor = Color.FromArgb(46, 204, 113);
             txtNama.Focus();

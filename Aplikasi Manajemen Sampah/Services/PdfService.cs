@@ -72,11 +72,10 @@ namespace Aplikasi_Manajemen_Sampah.Services
                         document.Add(new Paragraph("\n"));
 
                         // Tabel
-                        Table table = new Table(5);
+                        Table table = new Table(4);
                         table.SetWidth(UnitValue.CreatePercentValue(100));
 
                         table.AddHeaderCell("Tanggal");
-                        table.AddHeaderCell("User");
                         table.AddHeaderCell("Item");
                         table.AddHeaderCell("Jenis");
                         table.AddHeaderCell("Berat (Kg)");
@@ -84,7 +83,6 @@ namespace Aplikasi_Manajemen_Sampah.Services
                         foreach (var item in dataSampah)
                         {
                             table.AddCell(new Paragraph(item.TanggalMasuk.ToString("dd/MM/yyyy")));
-                            table.AddCell(new Paragraph(item.InputBy ?? "-"));
                             table.AddCell(new Paragraph(item.Nama ?? "-"));
                             table.AddCell(new Paragraph(item.Jenis ?? "-"));
                             table.AddCell(new Paragraph(item.BeratKg.ToString()));

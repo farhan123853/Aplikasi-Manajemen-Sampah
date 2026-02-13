@@ -18,6 +18,7 @@
         private void InitializeComponent()
         {
             this.panelSidebar = new System.Windows.Forms.Panel();
+            this.btnGrafik = new System.Windows.Forms.Button(); // BARU - Grafik
             this.btnChatbot = new System.Windows.Forms.Button(); // BARU
             this.btnCetak = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@
             // 
             this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(50)))), ((int)(((byte)(40)))));
             // URUTAN CONTROLS - PENTING untuk posisi tombol
+            this.panelSidebar.Controls.Add(this.btnGrafik); // BARU - Grafik
             this.panelSidebar.Controls.Add(this.btnChatbot); // BARU - ditambahkan di atas btnCetak
             this.panelSidebar.Controls.Add(this.btnCetak);
             this.panelSidebar.Controls.Add(this.btnUsers);
@@ -51,6 +53,22 @@
             this.panelSidebar.Size = new System.Drawing.Size(240, 673);
             this.panelSidebar.TabIndex = 0;
 
+            // 
+            // btnGrafik (TOMBOL BARU - Grafik)
+            // 
+            this.btnGrafik.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGrafik.FlatAppearance.BorderSize = 0;
+            this.btnGrafik.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrafik.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnGrafik.ForeColor = System.Drawing.Color.White;
+            this.btnGrafik.Location = new System.Drawing.Point(0, 350);
+            this.btnGrafik.Name = "btnGrafik";
+            this.btnGrafik.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnGrafik.Size = new System.Drawing.Size(240, 50);
+            this.btnGrafik.TabIndex = 7;
+            this.btnGrafik.Text = "📊 Grafik Sampah";
+            this.btnGrafik.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGrafik.UseVisualStyleBackColor = true;
             // 
             // btnChatbot (TOMBOL BARU)
             // 
@@ -234,5 +252,6 @@
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Button btnCetak;
         private System.Windows.Forms.Button btnChatbot; // DEKLARASI BARU
+        private System.Windows.Forms.Button btnGrafik; // DEKLARASI BARU - Grafik
     }
 }

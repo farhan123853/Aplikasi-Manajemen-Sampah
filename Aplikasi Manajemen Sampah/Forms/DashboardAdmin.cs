@@ -35,6 +35,10 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             if (btnChatbot != null)
                 btnChatbot.Click += (s, e) => OpenChildForm(new FormChatbot(currentUser));
 
+            // TAMBAHAN BARU: Setup button Grafik
+            if (btnGrafik != null)
+                btnGrafik.Click += (s, e) => OpenChildForm(new FormGrafik());
+
             if (btnLogout != null)
                 btnLogout.Click += BtnLogout_Click;
         }
@@ -64,6 +68,15 @@ namespace Aplikasi_Manajemen_Sampah.Forms
                 SetupButtonHover(btnChatbot);
                 btnChatbot.Visible = true;
                 btnChatbot.BringToFront();
+            }
+
+            // TAMBAHAN BARU: Styling button Grafik
+            if (btnGrafik != null)
+            {
+                UIHelper.SetSidebarButton(btnGrafik);
+                SetupButtonHover(btnGrafik);
+                btnGrafik.Visible = true;
+                btnGrafik.BringToFront();
             }
 
             if (btnLogout != null)
