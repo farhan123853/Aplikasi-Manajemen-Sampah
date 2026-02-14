@@ -2441,6 +2441,7 @@
       "path": "system.appcontext/4.1.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -3354,6 +3355,7 @@
       "path": "system.linq.expressions/4.1.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -3460,6 +3462,7 @@
       "path": "system.objectmodel/4.0.12",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -3610,6 +3613,7 @@
       "path": "system.reflection.emit/4.0.1",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -3641,6 +3645,7 @@
       "path": "system.reflection.emit.ilgeneration/4.0.1",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/net45/_._",
@@ -3673,6 +3678,7 @@
       "path": "system.reflection.emit.lightweight/4.0.1",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/net45/_._",
@@ -3705,6 +3711,7 @@
       "path": "system.reflection.extensions/4.0.1",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -3818,6 +3825,7 @@
       "path": "system.reflection.typeextensions/4.1.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -5566,23 +5574,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\andik\\.nuget\\packages\\": {},
+    "C:\\Users\\Lumba\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\PBO\\Aplikasi Manajemen Sampah\\Aplikasi Manajemen Sampah.csproj",
+      "projectUniqueName": "D:\\sem 3\\pemograman II\\Aplikasi-Manajemen-Sampah\\Aplikasi Manajemen Sampah\\Aplikasi Manajemen Sampah.csproj",
       "projectName": "Aplikasi Manajemen Sampah",
-      "projectPath": "C:\\PBO\\Aplikasi Manajemen Sampah\\Aplikasi Manajemen Sampah.csproj",
-      "packagesPath": "C:\\Users\\andik\\.nuget\\packages\\",
-      "outputPath": "C:\\PBO\\Aplikasi Manajemen Sampah\\obj\\",
+      "projectPath": "D:\\sem 3\\pemograman II\\Aplikasi-Manajemen-Sampah\\Aplikasi Manajemen Sampah\\Aplikasi Manajemen Sampah.csproj",
+      "packagesPath": "C:\\Users\\Lumba\\.nuget\\packages\\",
+      "outputPath": "D:\\sem 3\\pemograman II\\Aplikasi-Manajemen-Sampah\\Aplikasi Manajemen Sampah\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\andik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lumba\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
