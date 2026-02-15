@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Linq;
 using Aplikasi_Manajemen_Sampah.Models;
 
 namespace Aplikasi_Manajemen_Sampah.Forms
@@ -13,91 +12,99 @@ namespace Aplikasi_Manajemen_Sampah.Forms
 
         public DashboardAdmin(User user)
         {
-            this.currentUser = user;
+            currentUser = user;
             InitializeComponent();
 
             InitializeCustomDesign();
+            SetupNavigation();
+        }
 
-            // Setup Navigasi Sidebar
+        // ===============================
+        // SETUP NAVIGATION
+        // ===============================
+        private void SetupNavigation()
+        {
             if (btnSampah != null)
-                btnSampah.Click += (s, e) => OpenChildForm(new FormSampah(currentUser));
+                btnSampah.Click += (s, e) =>
+                    OpenChildForm(new FormSampah(currentUser));
 
             if (btnPenjemputan != null)
-                btnPenjemputan.Click += (s, e) => OpenChildForm(new FormPenjemputan(currentUser));
+                btnPenjemputan.Click += (s, e) =>
+                    OpenChildForm(new FormPenjemputan(currentUser));
 
             if (btnUsers != null)
-                btnUsers.Click += (s, e) => OpenChildForm(new FormUsers(currentUser));
+                btnUsers.Click += (s, e) =>
+                    OpenChildForm(new FormUsers(currentUser));
 
             if (btnCetak != null)
                 btnCetak.Click += btnCetakAdmin_Click;
 
-            // TAMBAHAN BARU: Setup button Chatbot
             if (btnChatbot != null)
-                btnChatbot.Click += (s, e) => OpenChildForm(new FormChatbot(currentUser));
+                btnChatbot.Click += (s, e) =>
+                    OpenChildForm(new FormChatbot(currentUser));
 
-            // TAMBAHAN BARU: Setup button Grafik
             if (btnGrafik != null)
-                btnGrafik.Click += (s, e) => OpenChildForm(new FormGrafik());
+                btnGrafik.Click += (s, e) =>
+                    OpenChildForm(new FormGrafik());
 
             if (btnLogout != null)
                 btnLogout.Click += BtnLogout_Click;
         }
 
+        // ===============================
+        // UI DESIGN
+        // ===============================
         private void InitializeCustomDesign()
         {
-            // Set Username di Header
-            if (Controls.Find("lblWelcome", true).Length > 0)
-                ((Label)Controls.Find("lblWelcome", true)[0]).Text = $"Welcome, {currentUser.Username}";
+            var lbl = Controls.Find("lblWelcome", true);
+            if (lbl.Length > 0)
+                ((Label)lbl[0]).Text = $"Welcome, {currentUser.Username}";
 
-            // Styling Tombol Sidebar
             if (btnSampah != null) { UIHelper.SetSidebarButton(btnSampah); SetupButtonHover(btnSampah); }
             if (btnPenjemputan != null) { UIHelper.SetSidebarButton(btnPenjemputan); SetupButtonHover(btnPenjemputan); }
             if (btnUsers != null) { UIHelper.SetSidebarButton(btnUsers); SetupButtonHover(btnUsers); }
+
             if (btnCetak != null)
             {
                 UIHelper.SetSidebarButton(btnCetak);
                 SetupButtonHover(btnCetak);
-                btnCetak.Visible = true;
-                btnCetak.BringToFront();
             }
 
-            // TAMBAHAN BARU: Styling button Chatbot
             if (btnChatbot != null)
             {
                 UIHelper.SetSidebarButton(btnChatbot);
                 SetupButtonHover(btnChatbot);
-                btnChatbot.Visible = true;
-                btnChatbot.BringToFront();
             }
 
-            // TAMBAHAN BARU: Styling button Grafik
             if (btnGrafik != null)
             {
                 UIHelper.SetSidebarButton(btnGrafik);
                 SetupButtonHover(btnGrafik);
-                btnGrafik.Visible = true;
-                btnGrafik.BringToFront();
             }
 
             if (btnLogout != null)
             {
                 UIHelper.SetSidebarButton(btnLogout);
-                btnLogout.BackColor = Color.FromArgb(192, 57, 43); // Merah khusus Logout
+                btnLogout.BackColor = Color.FromArgb(192, 57, 43);
             }
 
-            // Sembunyikan menu User jika bukan Admin
-            if (currentUser.Role != "Admin")
-            {
-                if (btnUsers != null) btnUsers.Visible = false;
-            }
+            // sembunyikan menu user jika bukan admin
+            if (currentUser.Role != "Admin" && btnUsers != null)
+                btnUsers.Visible = false;
         }
 
         private void SetupButtonHover(Button btn)
         {
-            btn.MouseEnter += (s, e) => btn.BackColor = Color.FromArgb(46, 204, 113);
-            btn.MouseLeave += (s, e) => btn.BackColor = UIHelper.PrimaryColor;
+            btn.MouseEnter += (s, e) =>
+                btn.BackColor = Color.FromArgb(46, 204, 113);
+
+            btn.MouseLeave += (s, e) =>
+                btn.BackColor = UIHelper.PrimaryColor;
         }
 
+        // ===============================
+        // OPEN CHILD FORM
+        // ===============================
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -105,7 +112,8 @@ namespace Aplikasi_Manajemen_Sampah.Forms
 
             activeForm = childForm;
 
-            // Konfigurasi agar Form bisa masuk ke dalam Panel
+            panelContent.Controls.Clear();
+
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
@@ -117,17 +125,23 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             childForm.Show();
         }
 
+        // ===============================
+        // LOGOUT
+        // ===============================
         private void BtnLogout_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Apakah Anda yakin ingin logout?", "Logout",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(
+                "Apakah Anda yakin ingin logout?",
+                "Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 new LoginForm().Show();
-                this.Hide();
+                this.Close();
             }
         }
 
-        private async void btnCetakAdmin_Click(object sender, EventArgs e)
+        private void btnCetakAdmin_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormLaporan());
         }
