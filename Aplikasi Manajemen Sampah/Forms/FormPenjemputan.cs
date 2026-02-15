@@ -7,6 +7,8 @@ using Aplikasi_Manajemen_Sampah.Models;
 using System.Linq;
 using System.Collections.Generic;
 using Aplikasi_Manajemen_Sampah.Services;
+using System.IO;
+using Microsoft.Web.WebView2.Core;
 
 namespace Aplikasi_Manajemen_Sampah.Forms
 {
@@ -21,59 +23,134 @@ namespace Aplikasi_Manajemen_Sampah.Forms
 
         public FormPenjemputan(User user)
         {
-            this.currentUser = user;
-            this.mongo = new MongoService();
+            currentUser = user;
+            mongo = new MongoService();
 
             InitializeComponent();
 
-            if (dgvPenjemputan != null) UIHelper.SetGridStyle(dgvPenjemputan);
+            InitMap();
+
+            if (dgvPenjemputan != null)
+                UIHelper.SetGridStyle(dgvPenjemputan);
 
             SetupEvents();
             LoadComboData();
             LoadData();
         }
 
+        // ==========================
+        // EVENT SETUP
+        // ==========================
         private void SetupEvents()
         {
             btnSimpan.Click += BtnSimpan_Click;
             btnHapus.Click += BtnHapus_Click;
             btnClear.Click += (s, e) => ClearInputs();
+
             dgvPenjemputan.CellClick += DgvPenjemputan_CellClick;
             cboStatus.SelectedIndexChanged += CboStatus_SelectedIndexChanged;
+            cboSampah.SelectedIndexChanged += CboSampah_SelectedIndexChanged;
 
             cboStatus.SelectedIndex = 0;
         }
 
+        // ==========================
+        // INIT MAP
+        // ==========================
+        private async void InitMap()
+        {
+            try
+            {
+                await webViewMap.EnsureCoreWebView2Async(null);
+
+                string path = Path.Combine(
+                    Application.StartupPath,
+                    "app",
+                    "maps.html");
+
+                if (File.Exists(path))
+                    webViewMap.Source = new Uri(path);
+                else
+                    MessageBox.Show("maps.html tidak ditemukan!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error load map: " + ex.Message);
+            }
+        }
+
+        // ==========================
+        // PINDAH MAP SAAT PILIH SAMPAH
+        // ==========================
+        private async void CboSampah_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboSampah.SelectedIndex < 0) return;
+
+            var sampah = listSampah[cboSampah.SelectedIndex];
+
+            double lat = -6.9175;
+            double lon = 107.6191;
+
+            try
+            {
+                await webViewMap.ExecuteScriptAsync(
+                    $"moveToLocation({lat},{lon},'{sampah.Nama}')");
+            }
+            catch { }
+        }
+
+        // ==========================
+        // LOAD COMBO DATA
+        // ==========================
         private async void LoadComboData()
         {
             try
             {
-                // Load Data untuk Dropdown
-                listSampah = await mongo.Sampah.Find(_ => true).ToListAsync();
-                cboSampah.Items.Clear();
-                foreach (var s in listSampah) cboSampah.Items.Add($"{s.Nama} ({s.BeratKg} kg)");
-
-                listPetugas = await mongo.Users.Find(u => u.Role == "Petugas" || u.Role == "Admin").ToListAsync();
-                cboPetugas.Items.Clear();
-                foreach (var p in listPetugas) cboPetugas.Items.Add(p.Username);
-
-                // Auto-select jika user adalah Petugas
-                if (currentUser.Role == "Petugas")
+                if (mongo.IsOffline)
                 {
-                    var idx = listPetugas.FindIndex(p => p.Id == currentUser.Id);
-                    if (idx >= 0) cboPetugas.SelectedIndex = idx;
+                    listSampah = new List<Sampah>()
+                    {
+                        new Sampah{ Id="1", Nama="Sampah Rumah", BeratKg=5 },
+                        new Sampah{ Id="2", Nama="Sampah Pasar", BeratKg=7 }
+                    };
+                }
+                else
+                {
+                    listSampah = await mongo.Sampah.Find(_ => true).ToListAsync();
+                }
+
+                cboSampah.Items.Clear();
+                foreach (var s in listSampah)
+                    cboSampah.Items.Add($"{s.Nama} ({s.BeratKg} kg)");
+
+                if (!mongo.IsOffline)
+                {
+                    listPetugas = await mongo.Users
+                        .Find(u => u.Role == "Petugas" || u.Role == "Admin")
+                        .ToListAsync();
+
+                    cboPetugas.Items.Clear();
+                    foreach (var p in listPetugas)
+                        cboPetugas.Items.Add(p.Username);
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        // ==========================
+        // LOAD DATA GRID
+        // ==========================
         private async void LoadData()
         {
             try
             {
+                if (mongo.IsOffline) return;
+
                 var data = await mongo.Penjemputan.Find(_ => true).ToListAsync();
 
-                // Join Data Manual (mengambil nama sampah & petugas)
                 foreach (var item in data)
                 {
                     var s = await mongo.Sampah.Find(x => x.Id == item.SampahID).FirstOrDefaultAsync();
@@ -84,46 +161,42 @@ namespace Aplikasi_Manajemen_Sampah.Forms
                     item.NamaPetugas = p?.Username ?? "-";
                 }
 
-                // Petugas hanya melihat datanya sendiri
-                if (currentUser.Role == "Petugas")
-                {
-                    data = data.Where(p => p.PetugasID == currentUser.Id).ToList();
-                }
-
                 dgvPenjemputan.DataSource = data;
 
                 string[] hiddenCols = { "Id", "SampahID", "PetugasID" };
                 foreach (var col in hiddenCols)
                 {
-                    if (dgvPenjemputan.Columns[col] != null) dgvPenjemputan.Columns[col].Visible = false;
+                    if (dgvPenjemputan.Columns[col] != null)
+                        dgvPenjemputan.Columns[col].Visible = false;
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Gagal load data: " + ex.Message); }
+            catch { }
         }
 
+        // ==========================
+        // SIMPAN DATA
+        // ==========================
         private async void BtnSimpan_Click(object sender, EventArgs e)
         {
-            if (cboSampah.SelectedIndex < 0 || cboPetugas.SelectedIndex < 0)
+            if (mongo.IsOffline)
             {
-                MessageBox.Show("Lengkapi data!"); return;
+                MessageBox.Show("OFFLINE MODE: data tidak disimpan ke database.");
+                return;
             }
 
-            var sId = listSampah[cboSampah.SelectedIndex].Id;
-            var pId = listPetugas[cboPetugas.SelectedIndex].Id;
-
-            // Cek Tabrakan Jadwal
-            bool overlap = await CheckOverlap(pId, dtpTanggalJadwal.Value, selectedId);
-            if (overlap)
+            if (cboSampah.SelectedIndex < 0 || cboPetugas.SelectedIndex < 0)
             {
-                MessageBox.Show("❌ GAGAL: Petugas ini sudah ada jadwal di jam tersebut (Bentrokan)!");
+                MessageBox.Show("Lengkapi data!");
                 return;
             }
 
             var item = new Penjemputan
             {
-                Id = string.IsNullOrEmpty(selectedId) ? MongoDB.Bson.ObjectId.GenerateNewId().ToString() : selectedId,
-                SampahID = sId,
-                PetugasID = pId,
+                Id = string.IsNullOrEmpty(selectedId)
+                    ? MongoDB.Bson.ObjectId.GenerateNewId().ToString()
+                    : selectedId,
+                SampahID = listSampah[cboSampah.SelectedIndex].Id,
+                PetugasID = listPetugas[cboPetugas.SelectedIndex].Id,
                 TanggalJadwal = dtpTanggalJadwal.Value,
                 Status = cboStatus.SelectedItem.ToString(),
                 Catatan = txtCatatan.Text
@@ -139,57 +212,25 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             LoadData();
         }
 
+        // ==========================
+        // HAPUS DATA
+        // ==========================
         private async void BtnHapus_Click(object sender, EventArgs e)
         {
+            if (mongo.IsOffline) return;
             if (string.IsNullOrEmpty(selectedId)) return;
-            if (MessageBox.Show("Hapus?", "Konfirmasi", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                await mongo.Penjemputan.DeleteOneAsync(x => x.Id == selectedId);
-                ClearInputs();
-                LoadData();
-            }
+
+            await mongo.Penjemputan.DeleteOneAsync(x => x.Id == selectedId);
+            ClearInputs();
+            LoadData();
         }
 
         private void DgvPenjemputan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
+
             var row = dgvPenjemputan.Rows[e.RowIndex];
             selectedId = row.Cells["Id"].Value?.ToString();
-
-            string sId = row.Cells["SampahID"].Value?.ToString();
-            string pId = row.Cells["PetugasID"].Value?.ToString();
-
-            cboSampah.SelectedIndex = listSampah.FindIndex(x => x.Id == sId);
-            cboPetugas.SelectedIndex = listPetugas.FindIndex(x => x.Id == pId);
-
-            dtpTanggalJadwal.Value = Convert.ToDateTime(row.Cells["TanggalJadwal"].Value);
-            cboStatus.SelectedItem = row.Cells["Status"].Value?.ToString();
-            txtCatatan.Text = row.Cells["Catatan"].Value?.ToString();
-
-            btnSimpan.Text = "Update";
-        }
-
-        private async Task<bool> CheckOverlap(string pId, DateTime date, string currentId)
-        {
-            try
-            {
-                // Ambil semua jadwal petugas tsb
-                var list = await mongo.Penjemputan.Find(x => x.PetugasID == pId).ToListAsync();
-
-                // Exclude ID yang sedang diedit (agar tidak bentrok dengan diri sendiri)
-                if (!string.IsNullOrEmpty(currentId))
-                {
-                    list = list.Where(x => x.Id != currentId).ToList();
-                }
-
-                // Cek selisih waktu < 2 jam
-                return list.Any(x => Math.Abs((x.TanggalJadwal - date).TotalHours) < 2);
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine("Error CheckOverlap: " + ex.Message);
-                return true;
-            }
         }
 
         private void CboStatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -202,7 +243,6 @@ namespace Aplikasi_Manajemen_Sampah.Forms
         {
             selectedId = "";
             cboSampah.SelectedIndex = -1;
-            if (currentUser.Role == "Admin") cboPetugas.SelectedIndex = -1;
             txtCatatan.Clear();
             btnSimpan.Text = "Simpan";
         }
