@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Aplikasi Manajemen Sampah")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b447dee5403e0f8f76a9788e9c4ff296a885b98c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f287211a40f8eaa55ee1875fdb44534530510b1e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Aplikasi Manajemen Sampah")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Aplikasi Manajemen Sampah")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
