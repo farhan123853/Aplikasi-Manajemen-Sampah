@@ -71,7 +71,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(220, 25);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "📊 Grafik Sampah Harian";
+            this.lblTitle.Text = "📊 Statistik Limbah Harian";
             //
             // lblDari
             //
@@ -184,7 +184,7 @@
             this.Controls.Add(this.panelFilter);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Name = "FormGrafik";
-            this.Text = "Grafik Sampah";
+            this.Text = "Statistik Limbah";
             this.panelFilter.ResumeLayout(false);
             this.panelFilter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartSampah)).EndInit();

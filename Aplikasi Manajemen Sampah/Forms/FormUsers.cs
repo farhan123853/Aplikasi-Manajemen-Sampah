@@ -10,6 +10,10 @@ using Aplikasi_Manajemen_Sampah.Services;
 
 namespace Aplikasi_Manajemen_Sampah.Forms
 {
+    /// <summary>
+    /// Form manajemen pengguna (User Management).
+    /// Khusus untuk Role Admin: Create, Update, Delete user serta pengaturan Role.
+    /// </summary>
     public partial class FormUsers : Form
     {
         private User currentUser;
@@ -20,7 +24,7 @@ namespace Aplikasi_Manajemen_Sampah.Forms
         {
             this.currentUser = user;
 
-            // Security Check: Hanya Admin yang boleh akses
+            // Security Check: Hanya Admin yang boleh akses halaman ini di level konstruktor
             if (currentUser.Role != "Admin")
             {
                 MessageBox.Show("Akses Ditolak!");
@@ -43,22 +47,31 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             btnHapus.Click += BtnHapus_Click;
             btnClear.Click += (s, e) => ClearInputs();
             dgvUsers.CellClick += DgvUsers_CellClick;
+
+            // Update Role Options dropdown
+            cboRole.Items.Clear();
+            cboRole.Items.Add("User");
+            cboRole.Items.Add("Petugas");
+            cboRole.Items.Add("Admin");
             cboRole.SelectedIndex = 0;
-            btnCetak.Click += BtnCetak_Click;
         }
 
+        /// <summary>
+        /// Memuat data pengguna dari database dan menampilkannya di DataGridView.
+        /// Password akan dimasking (••••••••) demi keamanan tampilan.
+        /// </summary>
         private async void LoadData()
         {
             try
             {
                 var users = await mongo.Users.Find(_ => true).ToListAsync();
 
-                // Masking Password untuk tampilan tabel
+                // Proyeksi data anonim untuk masking password di tabel UI
                 var displayList = users.Select(u => new
                 {
                     u.Id,
                     u.Username,
-                    Password = "••••••••",
+                    Password = "••••••••", // Masking visual
                     u.Role
                 }).ToList();
 
@@ -68,10 +81,13 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
 
+        /// <summary>
+        /// Menangani logika Simpan (Create) dan Update (Edit).
+        /// </summary>
         private async void BtnSimpan_Click(object sender, EventArgs e)
         {
             string user = txtUsername.Text.Trim();
-            string pass = txtPassword.Text;
+            string pass = txtPassword.Text; // Password input bisa kosong saat update
             string role = cboRole.SelectedItem?.ToString() ?? "Petugas";
 
             if (string.IsNullOrEmpty(user)) { MessageBox.Show("Username wajib diisi!"); return; }
@@ -85,7 +101,8 @@ namespace Aplikasi_Manajemen_Sampah.Forms
                         .Set(u => u.Username, user)
                         .Set(u => u.Role, role);
 
-                    // Hanya hash password jika ada input baru
+                    // Hanya update password & hash ulang JIKA field password diisi.
+                    // Jika kosong, berarti user tidak ingin mengubah password.
                     if (!string.IsNullOrEmpty(pass))
                     {
                         string hashedPassword = BCrypt.Net.BCrypt.HashPassword(pass);
@@ -94,7 +111,7 @@ namespace Aplikasi_Manajemen_Sampah.Forms
 
                     await mongo.Users.UpdateOneAsync(x => x.Id == selectedId, updateDef);
                 }
-                // Mode INSERT
+                // Mode INSERT (User Baru)
                 else
                 {
                     if (string.IsNullOrEmpty(pass)) { MessageBox.Show("Password wajib diisi user baru!"); return; }
@@ -122,7 +139,7 @@ namespace Aplikasi_Manajemen_Sampah.Forms
         {
             if (string.IsNullOrEmpty(selectedId)) return;
 
-            // Mencegah Admin menghapus akun sendiri
+            // Mencegah Admin menghapus akun sendiri agar tidak terkunci dari sistem
             if (selectedId == currentUser.Id)
             {
                 MessageBox.Show("Tidak bisa menghapus akun sendiri!", "Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -146,7 +163,7 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             txtUsername.Text = row.Cells["Username"].Value?.ToString();
             cboRole.SelectedItem = row.Cells["Role"].Value?.ToString();
 
-            txtPassword.Clear(); // Kosongkan password saat edit
+            txtPassword.Clear(); // Kosongkan password saat edit agar tidak membingungkan (placeholder "••••••••" di grid cukup)
             btnSimpan.Text = "Update";
         }
 
@@ -157,20 +174,6 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             txtPassword.Clear();
             cboRole.SelectedIndex = 0;
             btnSimpan.Text = "Simpan";
-        }
-        private async void BtnCetak_Click(object sender, EventArgs e)
-        {
-            // Ubah kursor jadi loading
-            this.Cursor = Cursors.WaitCursor;
-
-            // Panggil Service PDF yang tadi diperbaiki
-            var pdfService = new Aplikasi_Manajemen_Sampah.Services.PdfService();
-
-            // Karena ini Admin, kita panggil tanpa parameter (biar export SEMUA data)
-            // Kalau mau export data user tertentu saja, masukkan username di dalam kurung.
-            await pdfService.ExportLaporanAsync(DateTime.MinValue, DateTime.MaxValue);
-
-            this.Cursor = Cursors.Default;
         }
     }
 }

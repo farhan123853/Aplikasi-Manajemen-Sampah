@@ -7,6 +7,8 @@ namespace Aplikasi_Manajemen_Sampah
     public class BorderedPanel : Panel
     {
         public Color FillColor { get; set; } = Color.FromArgb(30, 30, 30);
+        public Color BorderColor { get; set; } = Color.White;
+        public int BorderRadius { get; set; } = 20;
 
         public BorderedPanel()
         {
@@ -21,7 +23,7 @@ namespace Aplikasi_Manajemen_Sampah
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            int radius = 20;
+            int radius = BorderRadius;
             Rectangle rect = this.ClientRectangle;
             rect.Width -= 1;
             rect.Height -= 1;
@@ -38,7 +40,7 @@ namespace Aplikasi_Manajemen_Sampah
                 e.Graphics.FillPath(brush, path);
             }
 
-            using (Pen pen = new Pen(Color.White, 1.5f))
+            using (Pen pen = new Pen(BorderColor, 1.5f))
             {
                 e.Graphics.DrawPath(pen, path);
             }

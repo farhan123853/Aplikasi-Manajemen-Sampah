@@ -7,6 +7,8 @@ namespace Aplikasi_Manajemen_Sampah
 {
     public class RoundedButton : Button
     {
+        public int BorderRadius { get; set; } = 20;
+
         public RoundedButton()
         {
             this.FlatStyle = FlatStyle.Flat;
@@ -22,7 +24,7 @@ namespace Aplikasi_Manajemen_Sampah
             pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
             GraphicsPath path = new GraphicsPath();
-            int radius = 20; // Tingkat kebulatan
+            int radius = BorderRadius; // Gunakan properti
             Rectangle rect = this.ClientRectangle;
             rect.Width -= 1;
             rect.Height -= 1;

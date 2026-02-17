@@ -22,6 +22,13 @@ namespace Aplikasi_Manajemen_Sampah.Forms
         private Label lblModel;
         private Label lblModelInfo;
 
+        // History Panel
+        private Panel panelHistory;
+        private ListBox lstHistory;
+        private Button btnNewChat;
+        private Button btnDeleteHistory;
+        private Label lblHistoryTitle;
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -48,9 +55,15 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             lblModel = new Label();
             txtApiKey = new TextBox();
             lblApiKey = new Label();
+            panelHistory = new Panel();
+            lstHistory = new ListBox();
+            btnDeleteHistory = new Button();
+            btnNewChat = new Button();
+            lblHistoryTitle = new Label();
             panelHeader.SuspendLayout();
             statusStrip1.SuspendLayout();
             panelApiKey.SuspendLayout();
+            panelHistory.SuspendLayout();
             SuspendLayout();
             // 
             // panelHeader
@@ -61,7 +74,7 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             panelHeader.Location = new Point(0, 0);
             panelHeader.Margin = new Padding(3, 4, 3, 4);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(1029, 80);
+            panelHeader.Size = new Size(1129, 80);
             panelHeader.TabIndex = 0;
             // 
             // lblTitle
@@ -71,9 +84,9 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             lblTitle.ForeColor = Color.White;
             lblTitle.Location = new Point(0, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(1029, 80);
+            lblTitle.Size = new Size(1129, 80);
             lblTitle.TabIndex = 0;
-            lblTitle.Text = "🤖 Asisten Bank Sampah";
+            lblTitle.Text = "🤖 Pusat Bantuan";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtConversation
@@ -82,11 +95,11 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             txtConversation.BackColor = Color.White;
             txtConversation.BorderStyle = BorderStyle.None;
             txtConversation.Font = new Font("Segoe UI", 10F);
-            txtConversation.Location = new Point(17, 187);
+            txtConversation.Location = new Point(265, 187);
             txtConversation.Margin = new Padding(3, 4, 3, 4);
             txtConversation.Name = "txtConversation";
             txtConversation.ReadOnly = true;
-            txtConversation.Size = new Size(994, 453);
+            txtConversation.Size = new Size(847, 453);
             txtConversation.TabIndex = 2;
             txtConversation.Text = "";
             // 
@@ -94,12 +107,12 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             // 
             txtMessage.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtMessage.Font = new Font("Segoe UI", 10F);
-            txtMessage.Location = new Point(17, 653);
+            txtMessage.Location = new Point(265, 653);
             txtMessage.Margin = new Padding(3, 4, 3, 4);
             txtMessage.Multiline = true;
             txtMessage.Name = "txtMessage";
             txtMessage.PlaceholderText = "Ketik pesan Anda di sini...";
-            txtMessage.Size = new Size(868, 92);
+            txtMessage.Size = new Size(720, 92);
             txtMessage.TabIndex = 3;
             txtMessage.KeyPress += txtMessage_KeyPress;
             // 
@@ -111,7 +124,7 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             btnSend.FlatStyle = FlatStyle.Flat;
             btnSend.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSend.ForeColor = Color.White;
-            btnSend.Location = new Point(897, 653);
+            btnSend.Location = new Point(997, 653);
             btnSend.Margin = new Padding(3, 4, 3, 4);
             btnSend.Name = "btnSend";
             btnSend.Size = new Size(114, 93);
@@ -128,7 +141,7 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             btnClear.FlatStyle = FlatStyle.Flat;
             btnClear.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnClear.ForeColor = Color.White;
-            btnClear.Location = new Point(17, 760);
+            btnClear.Location = new Point(265, 760);
             btnClear.Margin = new Padding(3, 4, 3, 4);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(114, 47);
@@ -145,7 +158,7 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             btnSaveChat.FlatStyle = FlatStyle.Flat;
             btnSaveChat.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnSaveChat.ForeColor = Color.White;
-            btnSaveChat.Location = new Point(143, 760);
+            btnSaveChat.Location = new Point(391, 760);
             btnSaveChat.Margin = new Padding(3, 4, 3, 4);
             btnSaveChat.Name = "btnSaveChat";
             btnSaveChat.Size = new Size(114, 47);
@@ -158,10 +171,10 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             // 
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Items.AddRange(new ToolStripItem[] { lblStatus });
-            statusStrip1.Location = new Point(0, 823);
+            statusStrip1.Location = new Point(250, 823);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Padding = new Padding(1, 0, 16, 0);
-            statusStrip1.Size = new Size(1029, 26);
+            statusStrip1.Size = new Size(879, 26);
             statusStrip1.TabIndex = 7;
             // 
             // lblStatus
@@ -183,7 +196,7 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             panelApiKey.Margin = new Padding(3, 4, 3, 4);
             panelApiKey.Name = "panelApiKey";
             panelApiKey.Padding = new Padding(17, 13, 17, 13);
-            panelApiKey.Size = new Size(1029, 93);
+            panelApiKey.Size = new Size(1129, 93);
             panelApiKey.TabIndex = 1;
             // 
             // lblModelInfo
@@ -240,30 +253,104 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             lblApiKey.TabIndex = 0;
             lblApiKey.Text = "API Key:";
             // 
+            // panelHistory
+            // 
+            panelHistory.BackColor = Color.FromArgb(248, 249, 250);
+            panelHistory.BorderStyle = BorderStyle.FixedSingle;
+            panelHistory.Controls.Add(lstHistory);
+            panelHistory.Controls.Add(btnDeleteHistory);
+            panelHistory.Controls.Add(btnNewChat);
+            panelHistory.Controls.Add(lblHistoryTitle);
+            panelHistory.Dock = DockStyle.Left;
+            panelHistory.Location = new Point(0, 173);
+            panelHistory.Name = "panelHistory";
+            panelHistory.Size = new Size(250, 676);
+            panelHistory.TabIndex = 20;
+            // 
+            // lstHistory
+            // 
+            lstHistory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lstHistory.BorderStyle = BorderStyle.None;
+            lstHistory.Font = new Font("Segoe UI", 9F);
+            lstHistory.FormattingEnabled = true;
+            lstHistory.Location = new Point(0, 80);
+            lstHistory.Name = "lstHistory";
+            lstHistory.Size = new Size(248, 520);
+            lstHistory.TabIndex = 2;
+            lstHistory.DoubleClick += lstHistory_DoubleClick;
+            // 
+            // btnDeleteHistory
+            // 
+            btnDeleteHistory.BackColor = Color.FromArgb(231, 76, 60);
+            btnDeleteHistory.Dock = DockStyle.Bottom;
+            btnDeleteHistory.FlatAppearance.BorderSize = 0;
+            btnDeleteHistory.FlatStyle = FlatStyle.Flat;
+            btnDeleteHistory.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnDeleteHistory.ForeColor = Color.White;
+            btnDeleteHistory.Location = new Point(0, 634);
+            btnDeleteHistory.Name = "btnDeleteHistory";
+            btnDeleteHistory.Size = new Size(248, 40);
+            btnDeleteHistory.TabIndex = 3;
+            btnDeleteHistory.Text = "🗑️ Hapus History";
+            btnDeleteHistory.UseVisualStyleBackColor = false;
+            btnDeleteHistory.Click += btnDeleteHistory_Click;
+            // 
+            // btnNewChat
+            // 
+            btnNewChat.BackColor = Color.FromArgb(46, 204, 113);
+            btnNewChat.Dock = DockStyle.Top;
+            btnNewChat.FlatAppearance.BorderSize = 0;
+            btnNewChat.FlatStyle = FlatStyle.Flat;
+            btnNewChat.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            btnNewChat.ForeColor = Color.White;
+            btnNewChat.Location = new Point(0, 40);
+            btnNewChat.Name = "btnNewChat";
+            btnNewChat.Size = new Size(248, 40);
+            btnNewChat.TabIndex = 1;
+            btnNewChat.Text = "➕ Percakapan Baru";
+            btnNewChat.UseVisualStyleBackColor = false;
+            btnNewChat.Click += btnNewChat_Click;
+            // 
+            // lblHistoryTitle
+            // 
+            lblHistoryTitle.BackColor = Color.FromArgb(30, 50, 40);
+            lblHistoryTitle.Dock = DockStyle.Top;
+            lblHistoryTitle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblHistoryTitle.ForeColor = Color.White;
+            lblHistoryTitle.Location = new Point(0, 0);
+            lblHistoryTitle.Name = "lblHistoryTitle";
+            lblHistoryTitle.Size = new Size(248, 40);
+            lblHistoryTitle.TabIndex = 0;
+            lblHistoryTitle.Text = "  📚 Riwayat Chat";
+            lblHistoryTitle.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // FormChatbot
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 250);
-            ClientSize = new Size(1029, 849);
+            ClientSize = new Size(1129, 849);
             Controls.Add(statusStrip1);
             Controls.Add(btnSaveChat);
             Controls.Add(btnClear);
             Controls.Add(btnSend);
             Controls.Add(txtMessage);
             Controls.Add(txtConversation);
+            Controls.Add(panelHistory);
             Controls.Add(panelApiKey);
             Controls.Add(panelHeader);
             Font = new Font("Segoe UI", 9F);
             Margin = new Padding(3, 4, 3, 4);
-            MinimumSize = new Size(912, 784);
+            MinimumSize = new Size(1050, 784);
             Name = "FormChatbot";
-            Text = "Asisten AI - Bank Sampah";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Pusat Bantuan - Bank Sampah";
             panelHeader.ResumeLayout(false);
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
             panelApiKey.ResumeLayout(false);
             panelApiKey.PerformLayout();
+            panelHistory.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }

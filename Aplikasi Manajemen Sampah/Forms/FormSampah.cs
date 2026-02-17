@@ -5,10 +5,16 @@ using Aplikasi_Manajemen_Sampah.Models;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using Aplikasi_Manajemen_Sampah.Services;
-using System.Collections.Generic; // Tambahkan ini untuk List
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Aplikasi_Manajemen_Sampah.Forms
 {
+    /// <summary>
+    /// Form untuk manajemen data sampah (CRUD).
+    /// Mengelola input data sampah, lokasi pembuangan, dan jenis sampah.
+    /// Dilengkapi fitur validasi input, peringatan limbah B3, dan pencatatan otomatis.
+    /// </summary>
     public partial class FormSampah : Form
     {
         private User currentUser;
@@ -18,49 +24,62 @@ namespace Aplikasi_Manajemen_Sampah.Forms
         public FormSampah(User user)
         {
             this.currentUser = user;
+
+            // Security Check: Role 'User' biasa dibatasi aksesnya (Read-Only atau No Access)
+            // Di sini implementasinya adalah blokir total.
+            if (currentUser.Role == "User")
+            {
+                MessageBox.Show("Anda tidak memiliki akses ke halaman ini!", "Akses Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();
+                return;
+            }
+
             InitializeComponent();
             mongo = new MongoService();
 
             if (dgvSampah != null) UIHelper.SetGridStyle(dgvSampah);
 
-            // 1. Panggil fungsi untuk mengisi data dropdown Jawa Barat
+            // Inisialisasi Data Referensi
             IsiDataLokasiJawaBarat();
 
             SetupEvents();
             LoadData();
         }
 
-        // --- FUNGSI BARU: Mengisi Dropdown Wilayah Jabar ---
-        private void IsiDataLokasiJawaBarat()
+        /// <summary>
+        /// Mengisi dropdown lokasi dengan data wilayah administratif Jawa Barat.
+        /// Sumber data prioritas: 
+        /// 1. Data Statis (LocationData.CityCoords) - Cepat & Pasti.
+        /// 2. Data Dinamis (Collection 'Lokasi') - Untuk lokasi custom tambahan.
+        /// </summary>
+        private async void IsiDataLokasiJawaBarat()
         {
-            // Pastikan cboLokasi sudah dibuat di Designer
-            cboLokasi.Items.Clear();
+            try
+            {
+                cboLokasi.Items.Clear();
 
-            string[] wilayahJabar = {
-                "Kota Bandung", "Kab. Bandung", "Kab. Bandung Barat",
-                "Kota Bogor", "Kab. Bogor",
-                "Kota Bekasi", "Kab. Bekasi",
-                "Kota Depok",
-                "Kota Cimahi",
-                "Kota Tasikmalaya", "Kab. Tasikmalaya",
-                "Kota Sukabumi", "Kab. Sukabumi",
-                "Kota Cirebon", "Kab. Cirebon",
-                "Kota Banjar",
-                "Kab. Cianjur",
-                "Kab. Garut",
-                "Kab. Indramayu",
-                "Kab. Karawang",
-                "Kab. Kuningan",
-                "Kab. Majalengka",
-                "Kab. Pangandaran",
-                "Kab. Purwakarta",
-                "Kab. Subang",
-                "Kab. Sumedang",
-                "Kab. Ciamis"
-            };
+                // 1. Load Wilayah Administratif (Kota/Kab)
+                var daftarKotaJabar = LocationData.CityCoords.Keys.ToArray();
+                cboLokasi.Items.AddRange(daftarKotaJabar);
 
-            cboLokasi.Items.AddRange(wilayahJabar);
-            cboLokasi.SelectedIndex = 0; // Pilih default yang pertama
+                // 2. Load Lokasi Tambahan dari Database secara asinkron
+                var listLokasiDb = await mongo.Database.GetCollection<Lokasi>("Lokasi").Find(_ => true).ToListAsync();
+                
+                foreach (var lokasi in listLokasiDb)
+                {
+                    // Hindari duplikasi jika nama kota sudah ada di list statis
+                    if (!cboLokasi.Items.Contains(lokasi.Nama))
+                    {
+                        cboLokasi.Items.Add(lokasi.Nama);
+                    }
+                }
+
+                if (cboLokasi.Items.Count > 0) cboLokasi.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal memuat data lokasi: " + ex.Message);
+            }
         }
 
         private void SetupEvents()
@@ -69,10 +88,14 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             btnHapus.Click += BtnHapus_Click;
             btnClear.Click += (s, e) => ClearInputs();
             dgvSampah.CellClick += DgvSampah_CellClick;
+            dgvSampah.CellFormatting += DgvSampah_CellFormatting;
 
             if (cboJenis.Items.Count > 0) cboJenis.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Memuat data sampah dari MongoDB ke DataGridView.
+        /// </summary>
         private async void LoadData()
         {
             if (dgvSampah == null) return;
@@ -82,6 +105,7 @@ namespace Aplikasi_Manajemen_Sampah.Forms
                 var listSampah = await mongo.Sampah.Find(_ => true).ToListAsync();
                 dgvSampah.DataSource = listSampah;
 
+                // Formatting Tampilan Grid
                 if (dgvSampah.Columns["Id"] != null) dgvSampah.Columns["Id"].Visible = false;
                 if (dgvSampah.Columns["TanggalMasuk"] != null)
                     dgvSampah.Columns["TanggalMasuk"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
@@ -89,12 +113,16 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             catch (Exception ex) { MessageBox.Show($"Error loading data: {ex.Message}"); }
         }
 
+        /// <summary>
+        /// Menangani logika penyimpanan data (Insert & Update).
+        /// Mencakup validasi input, logika bisnis (B3 warning, Daur Ulang note), dan insert ke DB.
+        /// </summary>
         private async void BtnSimpan_Click(object sender, EventArgs e)
         {
-            // Validasi Input (txtLokasi diganti cboLokasi)
+            // Validasi Input Dasar
             if (string.IsNullOrWhiteSpace(txtNama.Text) ||
                 string.IsNullOrWhiteSpace(txtBerat.Text) ||
-                cboLokasi.SelectedIndex == -1) // Cek apakah lokasi dipilih
+                cboLokasi.SelectedIndex == -1)
             {
                 MessageBox.Show("Nama, Berat, dan Lokasi wajib diisi!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -107,28 +135,26 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             }
 
             string jenis = cboJenis.SelectedItem?.ToString() ?? "Organik";
-
-            // Ambil text dari dropdown lokasi
             string lokasiTerpilih = cboLokasi.SelectedItem.ToString();
             string catatanOtomatis = "";
 
-            // --- Logic ---
+            // --- LOGIKA BISNIS ---
 
-            // 1. Peringatan Limbah B3
+            // 1. Safety Check: Limbah B3 (Berbahaya)
             if (jenis == "B3")
             {
-                var confirm = MessageBox.Show("⚠️ PERINGATAN LIMBAH B3!\nPastikan penanganan sesuai prosedur K3.\nLanjutkan?",
+                var confirm = MessageBox.Show("⚠️ PERINGATAN LIMBAH B3!\nPastikan penanganan sesuai prosedur K3.\nLanjutkan penyimpanan?",
                     "Safety Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (confirm == DialogResult.No) return;
             }
 
-            // 2. Auto-Note Daur Ulang
+            // 2. Auto-Note: Sampah Daur Ulang
             if (jenis == "DaurUlang")
             {
                 catatanOtomatis = " Perlu Dipisahkan (Daur Ulang)";
             }
 
-            // 3. Peringatan Kapasitas
+            // 3. Warning Kapasitas: Jika berat > 100kg
             if (beratKg >= 100)
             {
                 MessageBox.Show("⚠️ KAPASITAS TINGGI DETEKSI!\nBerat > 100kg. Harap segera jadwalkan penjemputan.",
@@ -143,12 +169,13 @@ namespace Aplikasi_Manajemen_Sampah.Forms
                     Nama = txtNama.Text,
                     Jenis = jenis,
                     BeratKg = beratKg,
-                    Lokasi = lokasiTerpilih, // Simpan dari dropdown
-                    TanggalMasuk = dtpTanggalMasuk.Value,
+                    Lokasi = lokasiTerpilih,
+                    TanggalMasuk = DateTime.Now,
                     InputBy = currentUser.Username,
                     Catatan = catatanOtomatis
                 };
 
+                // Insert or Update Logic
                 if (string.IsNullOrEmpty(selectedId))
                 {
                     await mongo.Sampah.InsertOneAsync(sampah);
@@ -174,10 +201,10 @@ namespace Aplikasi_Manajemen_Sampah.Forms
                 return;
             }
 
-            // Verifikasi Hapus B3
+            // Verifikasi Ekstra untuk Hapus B3
             if (cboJenis.SelectedItem?.ToString() == "B3")
             {
-                if (MessageBox.Show("Hapus data B3 butuh verifikasi. Lanjutkan?", "Hapus B3", MessageBoxButtons.YesNo) == DialogResult.No) return;
+                if (MessageBox.Show("Menghapus data B3 membutuhkan verifikasi ulang. Lanjutkan?", "Hapus B3", MessageBoxButtons.YesNo) == DialogResult.No) return;
             }
 
             if (MessageBox.Show("Yakin hapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -197,7 +224,7 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             txtNama.Text = row.Cells["Nama"].Value?.ToString();
             txtBerat.Text = row.Cells["BeratKg"].Value?.ToString();
 
-            // --- Logic baru untuk Lokasi (Dropdown) ---
+            // Handling Lokasi di Dropdown saat Edit
             string lokasiDb = row.Cells["Lokasi"].Value?.ToString();
             if (lokasiDb != null && cboLokasi.Items.Contains(lokasiDb))
             {
@@ -205,18 +232,12 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             }
             else
             {
-                // Jika lokasi di database tidak ada di list (misal data lama), tambahkan sementara atau pilih index 0
-                // Opsi aman: Pilih index 0 atau biarkan kosong
+                // Jika lokasi load dari DB tidak ada di list (misal data legacy), tampilkan saja sebagai text
                 cboLokasi.Text = lokasiDb;
             }
-            // ------------------------------------------
 
             string jenis = row.Cells["Jenis"].Value?.ToString();
             if (cboJenis.Items.Contains(jenis)) cboJenis.SelectedItem = jenis;
-
-            // Load tanggal masuk ke DateTimePicker
-            if (row.Cells["TanggalMasuk"].Value != null)
-                dtpTanggalMasuk.Value = Convert.ToDateTime(row.Cells["TanggalMasuk"].Value);
 
             btnSimpan.Text = "Update";
             btnSimpan.BackColor = Color.FromArgb(52, 152, 219);
@@ -228,14 +249,34 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             txtNama.Clear();
             txtBerat.Clear();
 
-            // Reset Dropdown Lokasi
+            // Reset Dropdown Lokasi ke default (Item pertama)
             if (cboLokasi.Items.Count > 0) cboLokasi.SelectedIndex = 0;
 
             cboJenis.SelectedIndex = 0;
-            dtpTanggalMasuk.Value = DateTime.Now;
             btnSimpan.Text = "Simpan";
             btnSimpan.BackColor = Color.FromArgb(46, 204, 113);
             txtNama.Focus();
+        }
+
+        /// <summary>
+        /// Formatting visual pada baris tabel sesuai status data.
+        /// Memberikan efek coret (strikeout) untuk sampah yang sudah dijemput.
+        /// </summary>
+        private void DgvSampah_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dgvSampah.Rows.Count)
+            {
+                var row = dgvSampah.Rows[e.RowIndex];
+                var status = row.Cells["Status"].Value?.ToString();
+
+                if (status == "Dijemput")
+                {
+                    // Efek Coret (Strikeout) untuk baris yang sudah dijemput
+                    e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Strikeout);
+                    e.CellStyle.ForeColor = Color.Gray;
+                    e.CellStyle.SelectionForeColor = Color.LightGray;
+                }
+            }
         }
     }
 }

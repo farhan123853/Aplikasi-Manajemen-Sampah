@@ -20,5 +20,8 @@ namespace Aplikasi_Manajemen_Sampah.Models
         public DateTime TanggalMasuk { get; set; } = DateTime.Now;
         public string InputBy { get; set; } = "";
         public string Catatan { get; set; } = "";
+        
+        // Status Penjemputan: "Pending", "Dijemput"
+        public string Status { get; set; } = "Pending";
     }
 }

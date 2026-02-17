@@ -18,8 +18,9 @@
         private void InitializeComponent()
         {
             this.panelSidebar = new System.Windows.Forms.Panel();
-            this.btnGrafik = new System.Windows.Forms.Button(); // BARU - Grafik
             this.btnChatbot = new System.Windows.Forms.Button(); // BARU
+            this.btnMaps = new System.Windows.Forms.Button();    // BARU - Maps
+            this.btnGrafik = new System.Windows.Forms.Button(); // BARU - Grafik
             this.btnCetak = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
             this.btnPenjemputan = new System.Windows.Forms.Button();
@@ -39,13 +40,13 @@
             // 
             this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(50)))), ((int)(((byte)(40)))));
             // URUTAN CONTROLS - PENTING untuk posisi tombol
-            this.panelSidebar.Controls.Add(this.btnGrafik); // BARU - Grafik
-            this.panelSidebar.Controls.Add(this.btnChatbot); // BARU - ditambahkan di atas btnCetak
+            this.panelSidebar.Controls.Add(this.btnChatbot); // Paling bawah
+            this.panelSidebar.Controls.Add(this.btnMaps);    // Di atas Chatbot
+            this.panelSidebar.Controls.Add(this.btnGrafik);
             this.panelSidebar.Controls.Add(this.btnCetak);
             this.panelSidebar.Controls.Add(this.btnUsers);
             this.panelSidebar.Controls.Add(this.btnPenjemputan);
             this.panelSidebar.Controls.Add(this.btnSampah);
-            this.panelSidebar.Controls.Add(this.btnLogout);
             this.panelSidebar.Controls.Add(this.panelLogo);
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
@@ -54,22 +55,6 @@
             this.panelSidebar.TabIndex = 0;
 
             // 
-            // btnGrafik (TOMBOL BARU - Grafik)
-            // 
-            this.btnGrafik.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGrafik.FlatAppearance.BorderSize = 0;
-            this.btnGrafik.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGrafik.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnGrafik.ForeColor = System.Drawing.Color.White;
-            this.btnGrafik.Location = new System.Drawing.Point(0, 350);
-            this.btnGrafik.Name = "btnGrafik";
-            this.btnGrafik.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnGrafik.Size = new System.Drawing.Size(240, 50);
-            this.btnGrafik.TabIndex = 7;
-            this.btnGrafik.Text = "📊 Grafik Sampah";
-            this.btnGrafik.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGrafik.UseVisualStyleBackColor = true;
-            // 
             // btnChatbot (TOMBOL BARU)
             // 
             this.btnChatbot.Dock = System.Windows.Forms.DockStyle.Top;
@@ -77,14 +62,48 @@
             this.btnChatbot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChatbot.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnChatbot.ForeColor = System.Drawing.Color.White;
-            this.btnChatbot.Location = new System.Drawing.Point(0, 300); // Posisi setelah btnCetak
+            this.btnChatbot.Location = new System.Drawing.Point(0, 400); // Geser ke bawah
             this.btnChatbot.Name = "btnChatbot";
             this.btnChatbot.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnChatbot.Size = new System.Drawing.Size(240, 50);
-            this.btnChatbot.TabIndex = 6;
-            this.btnChatbot.Text = "🤖 Asisten AI";
+            this.btnChatbot.TabIndex = 8;
+            this.btnChatbot.Text = "🤖 Pusat Bantuan";
             this.btnChatbot.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnChatbot.UseVisualStyleBackColor = true;
+
+            // 
+            // btnMaps (TOMBOL BARU UNTUK PETA)
+            // 
+            this.btnMaps.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMaps.FlatAppearance.BorderSize = 0;
+            this.btnMaps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaps.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnMaps.ForeColor = System.Drawing.Color.White;
+            this.btnMaps.Location = new System.Drawing.Point(0, 350); // Posisi sebelum chatbot
+            this.btnMaps.Name = "btnMaps";
+            this.btnMaps.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnMaps.Size = new System.Drawing.Size(240, 50);
+            this.btnMaps.TabIndex = 7;
+            this.btnMaps.Text = "🗺️ Peta Wilayah";
+            this.btnMaps.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMaps.UseVisualStyleBackColor = true;
+
+            // 
+            // btnGrafik (TOMBOL BARU UNTUK GRAFIK)
+            // 
+            this.btnGrafik.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGrafik.FlatAppearance.BorderSize = 0;
+            this.btnGrafik.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrafik.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnGrafik.ForeColor = System.Drawing.Color.White;
+            this.btnGrafik.Location = new System.Drawing.Point(0, 300); // Posisi sebelum btnCetak
+            this.btnGrafik.Name = "btnGrafik";
+            this.btnGrafik.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnGrafik.Size = new System.Drawing.Size(240, 50);
+            this.btnGrafik.TabIndex = 6;
+            this.btnGrafik.Text = "📊 Statistik Limbah";
+            this.btnGrafik.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGrafik.UseVisualStyleBackColor = true;
 
             // 
             // btnCetak
@@ -99,7 +118,7 @@
             this.btnCetak.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnCetak.Size = new System.Drawing.Size(240, 50);
             this.btnCetak.TabIndex = 5;
-            this.btnCetak.Text = "📄 Cetak Laporan";
+            this.btnCetak.Text = "📄 Export Laporan";
             this.btnCetak.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCetak.UseVisualStyleBackColor = true;
             // 
@@ -115,7 +134,7 @@
             this.btnUsers.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnUsers.Size = new System.Drawing.Size(240, 50);
             this.btnUsers.TabIndex = 4;
-            this.btnUsers.Text = "👥 Kelola User";
+            this.btnUsers.Text = "👥 Manajemen Pengguna";
             this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUsers.UseVisualStyleBackColor = true;
             // 
@@ -131,7 +150,7 @@
             this.btnPenjemputan.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnPenjemputan.Size = new System.Drawing.Size(240, 50);
             this.btnPenjemputan.TabIndex = 3;
-            this.btnPenjemputan.Text = "🚛 Jadwal Penjemputan";
+            this.btnPenjemputan.Text = "🚛 Agenda Penjemputan";
             this.btnPenjemputan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPenjemputan.UseVisualStyleBackColor = true;
             // 
@@ -147,21 +166,21 @@
             this.btnSampah.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnSampah.Size = new System.Drawing.Size(240, 50);
             this.btnSampah.TabIndex = 2;
-            this.btnSampah.Text = "📦 Data Sampah";
+            this.btnSampah.Text = "📦 Inventaris Sampah";
             this.btnSampah.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSampah.UseVisualStyleBackColor = true;
             // 
             // btnLogout
             // 
-            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
-            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
             this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(0, 623);
+            this.btnLogout.Location = new System.Drawing.Point(820, 15);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(240, 50);
+            this.btnLogout.Size = new System.Drawing.Size(90, 30);
             this.btnLogout.TabIndex = 1;
             this.btnLogout.Text = "🚪 Logout";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -190,6 +209,7 @@
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.Color.White;
+            this.panelHeader.Controls.Add(this.btnLogout);
             this.panelHeader.Controls.Add(this.lblWelcome);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(240, 0);
@@ -203,7 +223,7 @@
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lblWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblWelcome.Location = new System.Drawing.Point(750, 20);
+            this.lblWelcome.Location = new System.Drawing.Point(600, 20);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(126, 21);
             this.lblWelcome.TabIndex = 0;
@@ -251,7 +271,8 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Button btnCetak;
-        private System.Windows.Forms.Button btnChatbot; // DEKLARASI BARU
         private System.Windows.Forms.Button btnGrafik; // DEKLARASI BARU - Grafik
+        private System.Windows.Forms.Button btnChatbot; // DEKLARASI BARU
+        private System.Windows.Forms.Button btnMaps;    // DEKLARASI BARU - Maps
     }
 }

@@ -9,17 +9,21 @@ using MongoDB.Driver;
 
 namespace Aplikasi_Manajemen_Sampah.Forms
 {
+    /// <summary>
+    /// Form visualisasi statistik data sampah dalam bentuk Grafik Garis (Line Chart).
+    /// Mendukung filter berdasarkan rentang tanggal dan jenis sampah.
+    /// </summary>
     public partial class FormGrafik : Form
     {
         private MongoService mongo;
 
-        // Warna per jenis sampah
+        // Definisi Palet Warna Konsisten untuk Jenis Sampah
         private readonly Dictionary<string, Color> warnaJenis = new Dictionary<string, Color>
         {
-            { "Organik",    Color.FromArgb(46, 204, 113) },   // Hijau
-            { "Anorganik",  Color.FromArgb(52, 152, 219) },   // Biru
-            { "B3",         Color.FromArgb(231, 76, 60) },    // Merah
-            { "DaurUlang",  Color.FromArgb(241, 196, 15) }    // Kuning
+            { "Organik",    Color.FromArgb(46, 204, 113) },   // Hijau Alam
+            { "Anorganik",  Color.FromArgb(52, 152, 219) },   // Biru Plastik
+            { "B3",         Color.FromArgb(231, 76, 60) },    // Merah Bahaya
+            { "DaurUlang",  Color.FromArgb(241, 196, 15) }    // Kuning Emas
         };
 
         public FormGrafik()
@@ -27,73 +31,77 @@ namespace Aplikasi_Manajemen_Sampah.Forms
             InitializeComponent();
             mongo = new MongoService();
 
-            // Default range: 30 hari terakhir
+            // Setup Default Filter: 30 Hari Terakhir
             dtpDari.Value = DateTime.Now.AddDays(-30);
             dtpSampai.Value = DateTime.Now;
 
-            // Isi ComboBox Jenis
+            // Isi Dropdown Filter Jenis
             cboJenis.Items.AddRange(new object[] { "Semua Jenis", "Organik", "Anorganik", "B3", "DaurUlang" });
-            cboJenis.SelectedIndex = 0; // Default: Semua Jenis
+            cboJenis.SelectedIndex = 0; 
 
-            // Event
+            // Hubungkan Event Handler
             btnFilter.Click += (s, e) => LoadChartData();
 
-            // Styling chart
             SetupChartStyle();
-
-            // Load data pertama kali
-            LoadChartData();
+            LoadChartData(); // Auto-load saat pertama buka
         }
 
+        /// <summary>
+        /// Mengkonfigurasi tampilan Chart Control (Kosmetik).
+        /// Mengatur warna background, grid lines, format label axis, dan legend.
+        /// </summary>
         private void SetupChartStyle()
         {
             var area = chartSampah.ChartAreas[0];
 
-            // Background
+            // UI Modern: Background cerah lembut
             chartSampah.BackColor = Color.FromArgb(245, 247, 250);
             area.BackColor = Color.FromArgb(245, 247, 250);
 
-            // Axis X — menggunakan DateTime, label nama bulan
+            // Konfigurasi Sumbu X (Waktu)
             area.AxisX.Title = "Bulan";
             area.AxisX.TitleFont = new Font("Segoe UI", 10F, FontStyle.Bold);
             area.AxisX.LabelStyle.Font = new Font("Segoe UI", 8F);
             area.AxisX.LabelStyle.Angle = 0;
-            area.AxisX.LabelStyle.Format = "MMM yyyy";
-            area.AxisX.IntervalType = DateTimeIntervalType.Months;
+            area.AxisX.LabelStyle.Format = "MMM yyyy"; // Format tanggal pendek
+            area.AxisX.IntervalType = DateTimeIntervalType.Months; // Interval per bulan
             area.AxisX.Interval = 1;
             area.AxisX.MajorGrid.Enabled = true;
             area.AxisX.MajorGrid.LineColor = Color.FromArgb(220, 220, 220);
             area.AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
 
-            // Axis Y
+            // Konfigurasi Sumbu Y (Berat)
             area.AxisY.Title = "Berat (kg)";
             area.AxisY.TitleFont = new Font("Segoe UI", 10F, FontStyle.Bold);
             area.AxisY.LabelStyle.Font = new Font("Segoe UI", 8F);
             area.AxisY.MajorGrid.LineColor = Color.FromArgb(220, 220, 220);
             area.AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
-            area.AxisY.Minimum = 0;
+            area.AxisY.Minimum = 0; // Mulai dari 0 Kg
 
-            // Legend
+            // Konfigurasi Legend
             var legend = chartSampah.Legends[0];
             legend.Font = new Font("Segoe UI", 9F);
             legend.Docking = Docking.Top;
             legend.Alignment = StringAlignment.Center;
 
-            // Title
+            // Judul Grafik
             chartSampah.Titles.Clear();
-            var title = new Title("Grafik Sampah Harian per Jenis", Docking.Top,
+            var title = new Title("Statistik Harian Limbah per Jenis", Docking.Top,
                 new Font("Segoe UI", 13F, FontStyle.Bold), Color.FromArgb(30, 50, 40));
             chartSampah.Titles.Add(title);
         }
 
+        /// <summary>
+        /// Mengambil data dari MongoDB, melakukan aggregasi (grouping), dan me-render grafik.
+        /// </summary>
         private async void LoadChartData()
         {
             try
             {
                 DateTime dari = dtpDari.Value.Date;
-                DateTime sampai = dtpSampai.Value.Date.AddDays(1); // Inklusif hari terakhir
+                DateTime sampai = dtpSampai.Value.Date.AddDays(1); // Tambah 1 hari agar tanggal 'sampai' terhitung penuh (inklusif)
 
-                // Validasi range
+                // Validasi Tanggal
                 if (dari > sampai)
                 {
                     MessageBox.Show("Tanggal 'Dari' tidak boleh lebih besar dari 'Sampai'!",
@@ -101,7 +109,7 @@ namespace Aplikasi_Manajemen_Sampah.Forms
                     return;
                 }
 
-                // Ambil data dari MongoDB
+                // Query ke MongoDB dengan Filter Rentang Waktu
                 var filter = Builders<Models.Sampah>.Filter.And(
                     Builders<Models.Sampah>.Filter.Gte(s => s.TanggalMasuk, dari),
                     Builders<Models.Sampah>.Filter.Lt(s => s.TanggalMasuk, sampai)
@@ -109,42 +117,41 @@ namespace Aplikasi_Manajemen_Sampah.Forms
 
                 var listSampah = await mongo.Sampah.Find(filter).ToListAsync();
 
-                // Cek apakah ada data
+                // Handling Data Kosong
                 if (listSampah == null || listSampah.Count == 0)
                 {
                     chartSampah.Visible = false;
-                    lblNoData.Visible = true;
+                    lblNoData.Visible = true; // Tampilkan label "Data Kosong"
                     return;
                 }
 
                 chartSampah.Visible = true;
                 lblNoData.Visible = false;
 
-                // Clear series lama
                 chartSampah.Series.Clear();
 
-                // Ambil semua tanggal unik, diurutkan
+                // Siapkan timeline Axis-X (Daftar semua tanggal unik yang ada datanya)
                 var tanggalList = listSampah
                     .Select(s => s.TanggalMasuk.Date)
                     .Distinct()
                     .OrderBy(d => d)
                     .ToList();
 
-                // Jenis sampah yang akan ditampilkan (filter berdasarkan ComboBox)
+                // Tentukan Jenis Sampah yang akan ditampilkan (Single vs Multi Series)
                 string[] semuaJenis = { "Organik", "Anorganik", "B3", "DaurUlang" };
                 string selectedJenis = cboJenis.SelectedItem?.ToString();
 
-                string[] jenisTypes;
+                List<string> jenisTypes = new List<string>();
                 if (selectedJenis != null && selectedJenis != "Semua Jenis")
                 {
-                    jenisTypes = new string[] { selectedJenis };
+                    jenisTypes.Add(selectedJenis);
                 }
                 else
                 {
-                    jenisTypes = semuaJenis;
+                    jenisTypes.AddRange(semuaJenis);
                 }
 
-                // Group data: per tanggal per jenis → total berat
+                // Core Logic Aggregasi: Group by [Tanggal, Jenis] -> Sum(Berat)
                 var grouped = listSampah
                     .GroupBy(s => new { Tanggal = s.TanggalMasuk.Date, s.Jenis })
                     .ToDictionary(
@@ -152,29 +159,24 @@ namespace Aplikasi_Manajemen_Sampah.Forms
                         g => g.Sum(x => x.BeratKg)
                     );
 
-                // Buat Series per jenis
+                // Render setiap Series (Garis)
                 foreach (var jenis in jenisTypes)
                 {
                     var series = new Series(jenis)
                     {
                         ChartType = SeriesChartType.Line,
-                        Color = warnaJenis.ContainsKey(jenis)
-                            ? warnaJenis[jenis]
-                            : Color.Gray,
+                        Color = warnaJenis.ContainsKey(jenis) ? warnaJenis[jenis] : Color.Gray,
                         BorderWidth = 3,
                         MarkerStyle = MarkerStyle.Circle,
                         MarkerSize = 8,
-                        MarkerColor = warnaJenis.ContainsKey(jenis)
-                            ? warnaJenis[jenis]
-                            : Color.Gray,
+                        MarkerColor = warnaJenis.ContainsKey(jenis) ? warnaJenis[jenis] : Color.Gray,
                         IsValueShownAsLabel = false,
                         XValueType = ChartValueType.DateTime
                     };
 
-                    // Tooltip — saat hover muncul tanggal lengkap
                     series.ToolTip = "#SERIESNAME\nTanggal: #VALX{dd/MM/yyyy}\nBerat: #VALY kg";
 
-                    // Isi data per tanggal
+                    // Plot titik data. Jika tanggal tertentu tidak ada data, isi dengan 0
                     foreach (var tanggal in tanggalList)
                     {
                         double berat = 0;
@@ -191,8 +193,7 @@ namespace Aplikasi_Manajemen_Sampah.Forms
                     chartSampah.Series.Add(series);
                 }
 
-                // Refresh chart
-                chartSampah.Invalidate();
+                chartSampah.Invalidate(); // Redraw chart
             }
             catch (Exception ex)
             {

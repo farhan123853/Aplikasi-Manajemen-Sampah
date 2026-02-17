@@ -1,98 +1,4 @@
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.exe
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.dll
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\DnsClient.dll
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\MongoDB.Bson.dll
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\MongoDB.Driver.dll
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\SharpCompress.dll
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Snappier.dll
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\ZstdSharp.dll
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.csproj.AssemblyReference.cache
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormPenjemputan.resources
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormSampah.resources
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormUsers.resources
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.LoginForm.resources
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Properties.Resources.resources
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.DashboardAdmin.resources
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.csproj.GenerateResource.cache
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.GeneratedMSBuildEditorConfig.editorconfig
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.AssemblyInfoInputs.cache
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.AssemblyInfo.cs
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.csproj.CoreCompileInputs.cache
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi.DF48978D.Up2Date
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.dll
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\refint\Aplikasi Manajemen Sampah.dll
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.pdb
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.deps.json
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.runtimeconfig.json
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.pdb
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.genruntimeconfig.cache
-D:\sem 3\pemograman II\Aplikasi Manajemen Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\ref\Aplikasi Manajemen Sampah.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.exe
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.deps.json
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.runtimeconfig.json
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.pdb
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\DnsClient.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.barcodes.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.bouncy-castle-connector.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.forms.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.io.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.kernel.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.layout.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.pdfa.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.pdfua.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.sign.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.styledxmlparser.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.svg.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.bouncy-castle-adapter.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.commons.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.DotNet.PlatformAbstractions.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyModel.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\MongoDB.Bson.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\MongoDB.Driver.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\SharpCompress.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Snappier.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\System.Text.Encodings.Web.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\System.Text.Json.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\ZstdSharp.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.csproj.AssemblyReference.cache
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormLaporan.resources
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormPenjemputan.resources
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormSampah.resources
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormUsers.resources
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.LoginForm.resources
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Properties.Resources.resources
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.DashboardAdmin.resources
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.csproj.GenerateResource.cache
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.GeneratedMSBuildEditorConfig.editorconfig
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.AssemblyInfoInputs.cache
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.AssemblyInfo.cs
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.csproj.CoreCompileInputs.cache
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.sourcelink.json
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi.DF48978D.Up2Date
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\refint\Aplikasi Manajemen Sampah.dll
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.pdb
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.genruntimeconfig.cache
-C:\PBO\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\ref\Aplikasi Manajemen Sampah.dll
 D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.exe
-D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.deps.json
-D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.runtimeconfig.json
-D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.dll
-D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.pdb
 D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
 D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
 D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\DnsClient.dll
@@ -128,6 +34,7 @@ D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\
 D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\ZstdSharp.dll
 D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.csproj.AssemblyReference.cache
+D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormChatbot.resources
 D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormLaporan.resources
 D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormPenjemputan.resources
 D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormSampah.resources
@@ -145,69 +52,82 @@ D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\
 D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.dll
 D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\refint\Aplikasi Manajemen Sampah.dll
 D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.pdb
+D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.deps.json
+D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.runtimeconfig.json
+D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.dll
+D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.pdb
 D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.genruntimeconfig.cache
 D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\ref\Aplikasi Manajemen Sampah.dll
-D:\sem 3\pemograman II\Tugas\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormChatbot.resources
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.exe
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.deps.json
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.runtimeconfig.json
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.pdb
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\DnsClient.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.barcodes.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.bouncy-castle-connector.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.forms.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.io.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.kernel.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.layout.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.pdfa.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.pdfua.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.sign.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.styledxmlparser.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.svg.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.bouncy-castle-adapter.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.commons.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.DotNet.PlatformAbstractions.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyModel.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\MongoDB.Bson.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\MongoDB.Driver.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\SharpCompress.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Snappier.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\System.Text.Encodings.Web.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\System.Text.Json.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\WinForms.DataVisualization.Utilities.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\WinForms.DataVisualization.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\ZstdSharp.dll
-C:\PBO\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.csproj.AssemblyReference.cache
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormChatbot.resources
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormGrafik.resources
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormLaporan.resources
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormPenjemputan.resources
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormSampah.resources
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormUsers.resources
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.LoginForm.resources
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Properties.Resources.resources
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.DashboardAdmin.resources
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.csproj.GenerateResource.cache
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.GeneratedMSBuildEditorConfig.editorconfig
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.AssemblyInfoInputs.cache
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.AssemblyInfo.cs
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.csproj.CoreCompileInputs.cache
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.sourcelink.json
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi.DF48978D.Up2Date
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.dll
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\refint\Aplikasi Manajemen Sampah.dll
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.pdb
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.genruntimeconfig.cache
-C:\PBO\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\ref\Aplikasi Manajemen Sampah.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.csproj.AssemblyReference.cache
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormChatbot.resources
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormGrafik.resources
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormLaporan.resources
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormPenjemputan.resources
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormSampah.resources
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.FormUsers.resources
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.LoginForm.resources
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Properties.Resources.resources
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.DashboardAdmin.resources
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.csproj.GenerateResource.cache
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.GeneratedMSBuildEditorConfig.editorconfig
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.AssemblyInfoInputs.cache
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.AssemblyInfo.cs
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.csproj.CoreCompileInputs.cache
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.sourcelink.json
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.exe
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.deps.json
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.runtimeconfig.json
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Aplikasi Manajemen Sampah.pdb
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\DnsClient.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\DotNetEnv.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.barcodes.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.bouncy-castle-connector.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.forms.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.io.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.kernel.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.layout.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.pdfa.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.pdfua.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.sign.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.styledxmlparser.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.svg.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.bouncy-castle-adapter.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\itext.commons.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.DotNet.PlatformAbstractions.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyModel.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\MongoDB.Bson.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\MongoDB.Driver.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\SharpCompress.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Snappier.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\Sprache.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\System.Text.Encodings.Web.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\System.Text.Json.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\System.Windows.Forms.DataVisualization.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\ZstdSharp.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi.DF48978D.Up2Date
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\refint\Aplikasi Manajemen Sampah.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.pdb
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi Manajemen Sampah.genruntimeconfig.cache
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\ref\Aplikasi Manajemen Sampah.dll
+D:\sem 3\pemograman II\Aplikasi-Manajemen-Sampah\Aplikasi Manajemen Sampah\obj\Debug\net8.0-windows\Aplikasi_Manajemen_Sampah.Forms.Register.resources

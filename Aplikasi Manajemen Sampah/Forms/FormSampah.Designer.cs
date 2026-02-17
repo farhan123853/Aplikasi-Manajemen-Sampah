@@ -34,8 +34,6 @@
             this.panelInput = new System.Windows.Forms.Panel();
             this.cboLokasi = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.lblTanggalMasuk = new System.Windows.Forms.Label();
-            this.dtpTanggalMasuk = new System.Windows.Forms.DateTimePicker();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnHapus = new System.Windows.Forms.Button();
             this.btnSimpan = new System.Windows.Forms.Button();
@@ -66,8 +64,6 @@
             this.panelInput.BackColor = System.Drawing.Color.White;
             this.panelInput.Controls.Add(this.cboLokasi);
             this.panelInput.Controls.Add(this.label4);
-            this.panelInput.Controls.Add(this.lblTanggalMasuk);
-            this.panelInput.Controls.Add(this.dtpTanggalMasuk);
             this.panelInput.Controls.Add(this.btnClear);
             this.panelInput.Controls.Add(this.btnHapus);
             this.panelInput.Controls.Add(this.btnSimpan);
@@ -102,26 +98,6 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Lokasi / Daerah";
             // 
-            // lblTanggalMasuk
-            // 
-            this.lblTanggalMasuk.AutoSize = true;
-            this.lblTanggalMasuk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblTanggalMasuk.Location = new System.Drawing.Point(20, 300);
-            this.lblTanggalMasuk.Name = "lblTanggalMasuk";
-            this.lblTanggalMasuk.Size = new System.Drawing.Size(95, 15);
-            this.lblTanggalMasuk.TabIndex = 12;
-            this.lblTanggalMasuk.Text = "Tanggal Masuk";
-            // 
-            // dtpTanggalMasuk
-            // 
-            this.dtpTanggalMasuk.CustomFormat = "dd/MM/yyyy HH:mm";
-            this.dtpTanggalMasuk.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dtpTanggalMasuk.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTanggalMasuk.Location = new System.Drawing.Point(20, 320);
-            this.dtpTanggalMasuk.Name = "dtpTanggalMasuk";
-            this.dtpTanggalMasuk.Size = new System.Drawing.Size(310, 25);
-            this.dtpTanggalMasuk.TabIndex = 13;
-            // 
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.Gray;
@@ -129,7 +105,7 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(250, 370);
+            this.btnClear.Location = new System.Drawing.Point(250, 310);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(80, 40);
             this.btnClear.TabIndex = 9;
@@ -143,7 +119,7 @@
             this.btnHapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHapus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnHapus.ForeColor = System.Drawing.Color.White;
-            this.btnHapus.Location = new System.Drawing.Point(135, 370);
+            this.btnHapus.Location = new System.Drawing.Point(135, 310);
             this.btnHapus.Name = "btnHapus";
             this.btnHapus.Size = new System.Drawing.Size(100, 40);
             this.btnHapus.TabIndex = 8;
@@ -157,7 +133,7 @@
             this.btnSimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSimpan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnSimpan.ForeColor = System.Drawing.Color.White;
-            this.btnSimpan.Location = new System.Drawing.Point(20, 370);
+            this.btnSimpan.Location = new System.Drawing.Point(20, 310);
             this.btnSimpan.Name = "btnSimpan";
             this.btnSimpan.Size = new System.Drawing.Size(100, 40);
             this.btnSimpan.TabIndex = 7;
@@ -301,9 +277,5 @@
         // INI YANG BARU: ComboBox Lokasi
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cboLokasi;
-
-        // DateTimePicker Tanggal Masuk
-        private System.Windows.Forms.Label lblTanggalMasuk;
-        private System.Windows.Forms.DateTimePicker dtpTanggalMasuk;
     }
 }
